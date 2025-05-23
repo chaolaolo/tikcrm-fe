@@ -1,0 +1,13 @@
+
+.custom-login-btn {
+  background-color: #47bac1;
+  border-color: #47bac1;
+  color: #fff;
+}
+
+.custom-login-btn:hover {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+  color: #fff;
+}
+

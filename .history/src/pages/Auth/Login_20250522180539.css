@@ -1,0 +1,11 @@
+
+.custom-login-btn {
+  background-color: #47bac1;
+  color: white;
+  border: none;
+}
+
+.custom-login-btn:hover {
+  background-color: #1677ff; /* Ant Design primary blue */
+  color: white;
+}
