@@ -47,7 +47,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             case 'niche-management':
                 return <NicheManagementScreen />;
             case 'auto-listing':
-                return <AutoListingScreen />;
+                return <AutoListingScreen isCollapsed={isCollapsed}  />;
             case 'promotions':
                 return <PromotionsScreen />;
             case 'task-management':

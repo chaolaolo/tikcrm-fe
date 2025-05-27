@@ -6,25 +6,29 @@ import DraftTab from './Tabs/DraftTab';
 import ScheduledListTab from './Tabs/ScheduledListTab';
 import ProductPublishingProgressTab from './Tabs/ProductPublishingProgressTab';
 
-const AutoListingScreen: React.FC = () => {
-  const [activeTab, setActiveTab] = useState('Publish Product');
+interface AutoListingScreenProps {
+  isCollapsed: boolean;
+}
+
+const AutoListingScreen: React.FC<AutoListingScreenProps> = ({ isCollapsed }) => {
+  const [activeTab, setActiveTab] = useState(1);
 
   const tabs = [
-    { label: 'Publish Product' },
-    { label: 'Draft' },
-    { label: 'Scheduled List' },
-    { label: 'Product Publishing Progress' },
+    { id: 1, label: 'Publish Product' },
+    { id: 2, label: 'Draft' },
+    { id: 3, label: 'Scheduled List' },
+    { id: 4, label: 'Product Publishing Progress' },
   ];
 
   const renderContent = () => {
     switch (activeTab) {
-      case 'Publish Product':
-        return PublishProductTab();
-      case 'Draft':
+      case 1:
+        return <PublishProductTab isCollapsed={isCollapsed} />;;
+      case 2:
         return DraftTab();
-      case 'Scheduled List':
+      case 3:
         return ScheduledListTab();
-      case 'Product Publishing Progress':
+      case 4:
         return ProductPublishingProgressTab();
       default:
         return null;
@@ -44,8 +48,8 @@ const AutoListingScreen: React.FC = () => {
           {tabs.map((tab) => (
             <li className="nav-item" key={tab.label}>
               <button
-                className={`nav-link ${activeTab === tab.label ? 'active text-primary' : 'text-black bg-light border-light-subtle'}`}
-                onClick={() => setActiveTab(tab.label)}
+                className={`nav-link ${activeTab === tab.id ? 'active text-primary' : 'text-black bg-light border-light-subtle'}`}
+                onClick={() => setActiveTab(tab.id)}
                 style={{ marginRight: '2px' }}
               >
                 {tab.label}
@@ -53,7 +57,9 @@ const AutoListingScreen: React.FC = () => {
             </li>
           ))}
         </ul>
+
         {renderContent()}
+
       </div>
     </div>
   );

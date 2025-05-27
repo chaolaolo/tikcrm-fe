@@ -7,24 +7,24 @@ import PaymentsTab from './Tabs/PaymentsTab';
 import ReserveDetailsTab from './Tabs/ReserveDetailsTab';
 
 const IncomeManagementScreen: React.FC = () => {
-  const [activeTab, setActiveTab] = useState('Order details');
+  const [activeTab, setActiveTab] = useState(1);
 
   const tabs = [
-    { label: 'Order details' },
-    { label: 'Statements' },
-    { label: 'Payments' },
-    { label: 'Reserve details' },
+    {id:1, label: 'Order details' },
+    {id:2, label: 'Statements' },
+    {id:3, label: 'Payments' },
+    {id:4, label: 'Reserve details' },
   ];
 
   const renderContent = () => {
     switch (activeTab) {
-      case 'Order details':
+      case 1:
         return OrderDetailsTab();
-      case 'Statements':
+      case 2:
         return StatementsTab();
-      case 'Payments':
+      case 3:
         return PaymentsTab();
-      case 'Reserve details':
+      case 4:
         return ReserveDetailsTab();
       default:
         return null;
@@ -54,8 +54,8 @@ const IncomeManagementScreen: React.FC = () => {
           {tabs.map((tab) => (
             <li className="nav-item" key={tab.label}>
               <button
-                className={`nav-link ${activeTab === tab.label ? 'active text-primary' : 'text-black bg-light border-light-subtle'}`}
-                onClick={() => setActiveTab(tab.label)}
+                className={`nav-link ${activeTab === tab.id ? 'active text-primary' : 'text-black bg-light border-light-subtle'}`}
+                onClick={() => setActiveTab(tab.id)}
                 style={{ marginRight: '2px' }}
               >
                 {tab.label}

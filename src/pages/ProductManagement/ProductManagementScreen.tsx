@@ -3,15 +3,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 const ProductManagementScreen: React.FC = () => {
-  const [activeTab, setActiveTab] = useState('LIVE');
+  const [activeTab, setActiveTab] = useState(1);
 
   const tabs = [
-    { label: 'LIVE', icon: 'bi-check-circle' },
-    { label: 'REVIEWING', icon: 'bi-hourglass' },
-    { label: 'FAILED', icon: 'bi-x-circle' },
-    { label: 'FROZEN', icon: 'bi-slash-circle' },
-    { label: 'DELETED', icon: 'bi-trash' },
-    { label: 'ALL', icon: 'bi-list' },
+    { id: 1, label: 'LIVE', icon: 'bi-check-circle' },
+    { id: 2, label: 'REVIEWING', icon: 'bi-hourglass' },
+    { id: 3, label: 'FAILED', icon: 'bi-x-circle' },
+    { id: 4, label: 'FROZEN', icon: 'bi-slash-circle' },
+    { id: 5, label: 'DELETED', icon: 'bi-trash' },
+    { id: 6, label: 'ALL', icon: 'bi-list' },
   ];
 
 
@@ -93,12 +93,12 @@ const ProductManagementScreen: React.FC = () => {
           {tabs.map((tab) => (
             <li className="nav-item" key={tab.label}>
               <button
-                className={`nav-link ${activeTab === tab.label ? 'active text-primary' : 'text-black bg-light border-light-subtle'}`}
-                onClick={() => setActiveTab(tab.label)}
-                style={{marginRight: '2px'}}
+                className={`nav-link ${activeTab === tab.id ? 'active text-primary' : 'text-black bg-light border-light-subtle'}`}
+                onClick={() => setActiveTab(tab.id)}
+                style={{ marginRight: '2px' }}
               >
                 <i
-                  className={`bi ${tab.icon} me-2 ${activeTab === tab.label ? 'text-primary' : 'text-black'}`}
+                  className={`bi ${tab.icon} me-2 ${activeTab === tab.id ? 'text-primary' : 'text-black'}`}
                   style={{ width: '20px' }}
                 ></i>
                 {tab.label}
@@ -108,22 +108,24 @@ const ProductManagementScreen: React.FC = () => {
         </ul>
 
         {/* Product Table */}
-        <div className="table-responsive">
-          <table className="table table-bordered table-hover text-center">
+        <div className="table-responsive" style={{ position: 'relative' }}>
+          <table className="table table-bordered text-center">
             <thead className="table-light">
               <tr>
                 <th><input type="checkbox" /></th>
-                <th>Product Image</th>
-                <th>Product Name</th>
-                <th>Retail Price</th>
-                <th>
-                  Listing Quality <i className="bi bi-question-circle" title="Listing Quality Info"></i>
-                </th>
-                <th>
-                  Status <i className="bi bi-question-circle" title="Status Info"></i>
-                </th>
-                <th>Creation Date</th>
-                <th>Actions</th>
+                <th style={{ width: '100px' }}>Product Image</th>
+                <th style={{ width: '100px' }}>Product Name</th>
+                <th style={{ width: '100px' }}>Retail Price</th>
+                <th style={{ width: '100px' }}>Listing Quality <i className="bi bi-question-circle" title="Listing Quality Info"></i></th>
+                <th style={{ width: '100px' }}>Status <i className="bi bi-question-circle" title="Status Info"></i></th>
+                <th style={{ width: '100px' }}>Creation Date</th>
+                <th style={{
+                  width: '120px',
+                  position: 'sticky',
+                  right: 0,
+                  zIndex: 10,
+                  boxShadow: '-6px 0 6px -2px rgba(0,0,0,0.15)',
+                }} >Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -134,12 +136,22 @@ const ProductManagementScreen: React.FC = () => {
                     <div>No data</div>
                   </div>
                 </td>
+                {/* <td><input type="checkbox" /></td>
+                <td>Image</td>
+                <td>Sample Product</td>
+                <td>$10</td>
+                <td>Good</td>
+                <td>Active</td>
+                <td>2025-05-27</td>
+                <td className="sticky-actions">
+                  <button className="btn btn-sm btn-primary">Edit</button>
+                </td> */}
               </tr>
             </tbody>
           </table>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 
