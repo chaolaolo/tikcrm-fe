@@ -1,75 +1,59 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, Button } from 'react-bootstrap';
+import MarketingTab from './Tabs/MarketingTab';
+import ChangePasswordTab from './Tabs/ChangePasswordTab';
+import NotificationTab from './Tabs/NotificationTab';
+import AccountSettingsTab from './Tabs/AccountSettingsTab';
 
 const AccountSettingsScreen: React.FC = () => {
+  const [activeTab, setActiveTab] = useState(1);
+
+  const tabs = [
+    { id: 1, label: 'Cài đặt tài khoản' },
+    { id: 2, label: 'Cài đặt thông báo' },
+    { id: 3, label: 'Đổi mật khẩu' },
+    { id: 4, label: 'Tiếp thị' },
+  ];
+
+  const renderContent = () => {
+    switch (activeTab) {
+      case 1:
+        return AccountSettingsTab();
+      case 2:
+        return NotificationTab();
+      case 3:
+        return ChangePasswordTab();
+      case 4:
+        return MarketingTab();
+      default:
+        return null;
+    }
+  };
+
   return (
-    <div className="container-fluid bg-light min-vh-100 p-4">
-      <div className="bg-white rounded shadow-sm p-4">
+    <div className="container-fluid bg-light min-vh-100 p-2">
+      <div className="bg-white rounded shadow-sm p-3">
         <h5 className="mb-4">Quản lý tài khoản</h5>
 
-        <ul className="nav nav-tabs mb-4">
-          <li className="nav-item">
-            <a className="nav-link active" href="#">Cài đặt tài khoản</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">Cài đặt thông báo</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">Đổi mật khẩu</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">Tiếp thị</a>
-          </li>
+        {/* Tabs */}
+        <ul className="nav nav-tabs mb-2">
+          {tabs.map((tab) => (
+            <li className="nav-item" key={tab.label}>
+              <button
+                className={`nav-link ${activeTab === tab.id ? 'active text-primary' : 'text-black bg-light border-light-subtle'}`}
+                onClick={() => setActiveTab(tab.id)}
+                style={{ marginRight: '2px' }}
+              >
+                {tab.label}
+              </button>
+            </li>
+          ))}
         </ul>
 
-        <Form>
-          <Form.Group className="mb-3">
-            <Form.Label>Email</Form.Label>
-            <Form.Control type="email" value="tranchaufw04@gmail.com" disabled />
-          </Form.Group>
+        {/* content */}
+        {renderContent()}
 
-          <Form.Group className="mb-3">
-            <Form.Label><span className="text-danger">*</span> First Name</Form.Label>
-            <Form.Control type="text" defaultValue="chau" />
-          </Form.Group>
-
-          <Form.Group className="mb-3">
-            <Form.Label>Last Name</Form.Label>
-            <Form.Control type="text" defaultValue="tran" />
-          </Form.Group>
-
-          <Form.Group className="mb-3">
-            <Form.Label><span className="text-danger">*</span> SKU Prefix</Form.Label>
-            <Form.Control type="text" value="TRANCHAUFW04_ZMTW" disabled />
-          </Form.Group>
-
-          <Form.Group className="mb-3">
-            <Form.Label>API Key</Form.Label>
-            <div className="input-group">
-              <Form.Control type="text" />
-              <span className="input-group-text">
-                <i className="bi bi-clipboard"></i>
-              </span>
-            </div>
-            <div className="text-primary small mt-1">Tạo mới api key</div>
-          </Form.Group>
-
-          <Form.Group className="mb-3">
-            <Form.Label>KikiLogin API Key</Form.Label>
-            <Form.Control type="text" placeholder="Nhập API Key KikiLogin" />
-          </Form.Group>
-
-          <Form.Group className="mb-4">
-            <Form.Label>Ngôn ngữ</Form.Label>
-            <Form.Select defaultValue="English">
-              <option>English</option>
-              <option>Vietnamese</option>
-            </Form.Select>
-          </Form.Group>
-
-          <Button variant="primary">Cập nhật thông tin</Button>
-        </Form>
       </div>
     </div>
   );

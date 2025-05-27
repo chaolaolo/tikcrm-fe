@@ -1,8 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import CreatePromotionsTab from './Tabs/CreatePromotionsTab';
+import ListPromotionsTab from './Tabs/ListPromotionsTab';
+import SavedConfigurationTab from './Tabs/SavedConfigurationTab';
 
 const PromotionsScreen: React.FC = () => {
+  const [activeTab, setActiveTab] = useState('Tạo Promotions');
+
+  const tabs = [
+    { label: 'Tạo Promotions' },
+    { label: 'Danh sách Promotions' },
+    { label: 'Cấu hình đã lưu' },
+  ];
+
+  const renderContent = () => {
+    switch (activeTab) {
+      case 'Tạo Promotions':
+        return CreatePromotionsTab();
+      case 'Danh sách Promotions':
+        return ListPromotionsTab();
+      case 'Cấu hình đã lưu':
+        return SavedConfigurationTab();
+      default:
+        return null;
+    }
+  };
+
+
   return (
     <div className="container-fluid bg-light min-vh-100 p-4">
       <div className="bg-white rounded shadow-sm p-4">
@@ -16,79 +41,22 @@ const PromotionsScreen: React.FC = () => {
         </div>
 
         {/* Tabs */}
-        <ul className="nav nav-tabs mb-4">
-          <li className="nav-item">
-            <a className="nav-link active" href="#">Tạo Promotions</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">Danh sách Promotions</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">Cấu hình đã lưu</a>
-          </li>
+        <ul className="nav nav-tabs mb-2">
+          {tabs.map((tab) => (
+            <li className="nav-item" key={tab.label}>
+              <button
+                className={`nav-link ${activeTab === tab.label ? 'active text-primary' : 'text-black bg-light border-light-subtle'}`}
+                onClick={() => setActiveTab(tab.label)}
+                style={{ marginRight: '2px' }}
+              >
+                {tab.label}
+              </button>
+            </li>
+          ))}
         </ul>
 
-        {/* Form Inputs */}
-        <div className="row g-3 mb-4">
-          <div className="col-md-6">
-            <label className="form-label">* Promotion name</label>
-            <input type="text" className="form-control" placeholder="Nhập Tên Promotion" />
-          </div>
-          <div className="col-md-6">
-            <label className="form-label">* Loại Promotion</label>
-            <select className="form-select">
-              <option>FLASH SALE</option>
-            </select>
-          </div>
-          <div className="col-md-6">
-            <label className="form-label">* Thời gian bắt đầu</label>
-            <input type="date" className="form-control" />
-            <small className="text-muted">Timezone: America/Los_Angeles<br />Không thời gian tối đa cho Promotion là 3 ngày</small>
-          </div>
-          <div className="col-md-6">
-            <label className="form-label">* Thời gian kết thúc</label>
-            <input type="date" className="form-control" />
-            <small className="text-muted">Timezone: America/Los_Angeles</small>
-          </div>
-          <div className="col-md-6">
-            <label className="form-label">* Products</label>
-            <select className="form-select">
-              <option>VARIATION-LEVEL (Hỗ trợ FLASH SALE)</option>
-            </select>
-          </div>
-        </div>
-
-        {/* Product Table */}
-        <div className="table-responsive mb-4">
-          <table className="table table-bordered text-center">
-            <thead className="table-light">
-              <tr>
-                <th><input type="checkbox" /></th>
-                <th>Thông tin sản phẩm</th>
-                <th>Giá bán lẻ</th>
-                <th>Deal Price</th>
-                <th>Total Purchase Limit</th>
-                <th>Customer Purchase Limit</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td colSpan={6} className="py-5 text-muted">
-                  <div className="d-flex flex-column align-items-center">
-                    <i className="bi bi-inbox" style={{ fontSize: '2rem' }}></i>
-                    <div>No data</div>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        {/* Bottom Action */}
-        <div className="text-center">
-          <button className="btn btn-primary px-4">Tạo Promotion</button>
-        </div>
-      </div>
+       {renderContent()}
+    </div>
     </div>
   );
 };

@@ -15,7 +15,8 @@ const TaskManagementScreen: React.FC = () => {
             </button>
           </div>
         </div>
-
+        {/* Divider */}
+        <hr />
         {/* Task Table */}
         <div className="table-responsive">
           <table className="table table-bordered text-center">

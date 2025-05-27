@@ -4,10 +4,17 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 
 const NicheManagementScreen: React.FC = () => {
   return (
-    <div className="container-fluid bg-light min-vh-100 p-4">
-      <div className="bg-white rounded shadow-sm p-4">
+    <div className="container-fluid bg-light min-vh-100 p-2">
+      <div className="bg-white rounded shadow-sm p-3">
+
         <div className="d-flex justify-content-between align-items-center mb-4">
           <h5 className="mb-0">Niche-Sub Niche Management</h5>
+        </div>
+
+        {/* Divider */}
+        <hr />
+        {/*  */}
+        <div className="d-flex justify-content-end align-items-center mb-4">
           <div>
             <button className="btn btn-outline-secondary me-2">
               <i className="bi bi-arrow-clockwise me-1"></i>Refresh
@@ -18,6 +25,7 @@ const NicheManagementScreen: React.FC = () => {
           </div>
         </div>
 
+        {/* Niche Table */}
         <div className="table-responsive">
           <table className="table table-bordered text-center">
             <thead className="table-light">

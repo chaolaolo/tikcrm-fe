@@ -1,73 +1,68 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import ConfigurationGroupTab from './Tabs/ConfigurationGroupTab';
+import CategoryConfigurationTab from './Tabs/CategoryConfigurationTab';
+import SKUConfigurationTab from './Tabs/SKUConfigurationTab';
+import Description1ConfigTab from './Tabs/Description1ConfigTab';
+import Description2ConfigTab from './Tabs/Description2ConfigTab';
 
 const TemplateSettingsScreen: React.FC = () => {
+  const [activeTab, setActiveTab] = useState(1);
+
+  const tabs = [
+    { id: 1, label: 'Nhóm cấu hình' },
+    { id: 2, label: 'Cấu hình Category' },
+    { id: 3, label: 'Cấu hình SKU' },
+    { id: 4, label: 'Cấu hình Description 1' },
+    { id: 5, label: 'Cấu hình Description 2 (TOP-BOTTOM)' },
+  ];
+
+
+  const renderContent = () => {
+    switch (activeTab) {
+      case 1:
+        return ConfigurationGroupTab();
+      case 2:
+        return CategoryConfigurationTab();
+      case 3:
+        return SKUConfigurationTab();
+      case 4:
+        return Description1ConfigTab();
+      case 5:
+        return Description2ConfigTab();
+      default:
+        return null;
+    }
+  };
+
+
   return (
     <div className="container-fluid bg-light min-vh-100 p-4">
       <div className="bg-white rounded shadow-sm p-4">
         {/* Header */}
         <div className="d-flex justify-content-between align-items-center mb-3">
           <h5 className="mb-0">Cài đặt Template</h5>
-          <div>
-            <button className="btn btn-outline-secondary me-2">
-              <i className="bi bi-arrow-clockwise me-1"></i>Refresh
-            </button>
-            <button className="btn btn-outline-primary me-2">
-              Export
-            </button>
-            <button className="btn btn-primary">
-              Thêm cấu hình
-            </button>
-          </div>
         </div>
 
         {/* Tabs */}
-        <ul className="nav nav-tabs mb-3">
-          <li className="nav-item">
-            <a className="nav-link active" href="#">Nhóm cấu hình</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">Cấu hình Category</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">Cấu hình SKU</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">Cấu hình Description 1</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">Cấu hình Description 2 (TOP-BOTTOM)</a>
-          </li>
+        <ul className="nav nav-tabs mb-2">
+          {tabs.map((tab) => (
+            <li className="nav-item" key={tab.label}>
+              <button
+                className={`nav-link ${activeTab === tab.id ? 'active text-primary' : 'text-black bg-light border-light-subtle'}`}
+                onClick={() => setActiveTab(tab.id)}
+                style={{ marginRight: '2px', fontSize: '12px', }}
+              >
+                {tab.label}
+              </button>
+            </li>
+          ))}
         </ul>
 
-        {/* Scrollable Table */}
-        <div className="table-responsive" style={{ overflowX: 'auto' }}>
-          <table className="table table-bordered text-center" style={{ minWidth: '1200px' }}>
-            <thead className="table-light">
-              <tr>
-                <th>Vị trí</th>
-                <th>Name</th>
-                <th>Category Template</th>
-                <th>SKU Template</th>
-                <th>Description Template</th>
-                <th>DropShip Description Template</th>
-                <th>Ngày tạo</th>
-                <th>Hành động</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td colSpan={8} className="py-5 text-muted">
-                  <div className="d-flex flex-column align-items-center">
-                    <i className="bi bi-inbox" style={{ fontSize: '2rem' }}></i>
-                    <div>No data</div>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        {/* Content */}
+        {renderContent()}
+
       </div>
     </div>
   );

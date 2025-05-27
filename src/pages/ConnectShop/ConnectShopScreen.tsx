@@ -3,10 +3,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const ConnectShopScreen: React.FC = () => {
   return (
-    <div className="container-fluid bg-light min-vh-100 p-4">
-      <div className="bg-white rounded shadow-sm p-4">
-        <h5 className="mb-4">Store list</h5>
-
+    <div className="container-fluid bg-light min-vh-100 p-2">
+      <div className="bg-white rounded shadow-sm p-2 text-start">
+        <h5 className="mb-2">Store list</h5>
+        {/* Divider */}
+        <hr />
+        {/* Filter + Action Buttons */}
         <div className="d-flex flex-wrap gap-2 justify-content-end mb-3">
           <button className="btn btn-outline-secondary">Export (CSV)</button>
           <button className="btn btn-primary">Transfer Staff</button>
@@ -15,7 +17,9 @@ const ConnectShopScreen: React.FC = () => {
           </button>
           <button className="btn btn-outline-primary">Refresh</button>
         </div>
-
+        {/* Divider */}
+        <hr />
+        {/* Table */}
         <div className="row g-2 mb-4">
           <div className="col-md-4">
             <input type="text" className="form-control" placeholder="Search by: Store Name, Profile" />

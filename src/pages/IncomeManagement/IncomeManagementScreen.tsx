@@ -1,8 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import OrderDetailsTab from './Tabs/OrderDetailsTab';
+import StatementsTab from './Tabs/StatementsTab';
+import PaymentsTab from './Tabs/PaymentsTab';
+import ReserveDetailsTab from './Tabs/ReserveDetailsTab';
 
 const IncomeManagementScreen: React.FC = () => {
+  const [activeTab, setActiveTab] = useState('Order details');
+
+  const tabs = [
+    { label: 'Order details' },
+    { label: 'Statements' },
+    { label: 'Payments' },
+    { label: 'Reserve details' },
+  ];
+
+  const renderContent = () => {
+    switch (activeTab) {
+      case 'Order details':
+        return OrderDetailsTab();
+      case 'Statements':
+        return StatementsTab();
+      case 'Payments':
+        return PaymentsTab();
+      case 'Reserve details':
+        return ReserveDetailsTab();
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className="container-fluid bg-light min-vh-100 p-4">
       <div className="bg-white rounded shadow-sm p-4">
@@ -22,69 +50,21 @@ const IncomeManagementScreen: React.FC = () => {
         </div>
 
         {/* Tabs */}
-        <ul className="nav nav-tabs mb-3">
-          <li className="nav-item">
-            <a className="nav-link active" href="#">Order details</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">Statements</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">Payments</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">Reserve details</a>
-          </li>
+        <ul className="nav nav-tabs mb-2">
+          {tabs.map((tab) => (
+            <li className="nav-item" key={tab.label}>
+              <button
+                className={`nav-link ${activeTab === tab.label ? 'active text-primary' : 'text-black bg-light border-light-subtle'}`}
+                onClick={() => setActiveTab(tab.label)}
+                style={{ marginRight: '2px' }}
+              >
+                {tab.label}
+              </button>
+            </li>
+          ))}
         </ul>
 
-        {/* Filters */}
-        <div className="row g-2 mb-3">
-          <div className="col-md-4">
-            <select className="form-select">
-              <option>All Stores</option>
-            </select>
-          </div>
-          <div className="col-md-4">
-            <input type="date" className="form-control" placeholder="Start date" />
-          </div>
-          <div className="col-md-4">
-            <input type="date" className="form-control" placeholder="End date" />
-          </div>
-        </div>
-
-        {/* Scrollable Table */}
-        <div className="table-responsive" style={{ overflowX: 'auto' }}>
-          <table className="table table-bordered text-center" style={{ minWidth: '1400px' }}>
-            <thead className="table-light">
-              <tr>
-                <th>#</th>
-                <th>Statement date (UTC)</th>
-                <th>Statement ID</th>
-                <th>Payment ID</th>
-                <th>Status</th>
-                <th>Currency</th>
-                <th>Type</th>
-                <th>Order/adjustment ID</th>
-                <th>Order status</th>
-                <th>Total settlement amount</th>
-                <th>Shop code</th>
-                <th>Shop name</th>
-                <th>Suggest name</th>
-                <th>Name Seller</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td colSpan={14} className="py-5 text-muted">
-                  <div className="d-flex flex-column align-items-center">
-                    <i className="bi bi-inbox" style={{ fontSize: '2rem' }}></i>
-                    <div>No data</div>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        {renderContent()}
       </div>
     </div>
   );

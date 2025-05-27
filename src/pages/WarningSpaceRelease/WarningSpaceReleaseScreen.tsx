@@ -4,15 +4,16 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 
 const WarningSpaceReleaseScreen: React.FC = () => {
   return (
-    <div className="container-fluid bg-light min-vh-100 p-4">
-      <div className="bg-white rounded shadow-sm p-4">
+    <div className="container-fluid bg-light min-vh-100 p-2">
+      <div className="bg-white rounded shadow-sm p-3">
         <div className="d-flex justify-content-between align-items-center mb-3">
           <h5 className="mb-0">Cảnh báo gian lận</h5>
           <button className="btn btn-outline-secondary">
             <i className="bi bi-arrow-clockwise me-1"></i>Refresh
           </button>
         </div>
-
+        {/* Divider */}
+        <hr />
         {/* Filters */}
         <div className="row g-2 mb-3">
           <div className="col-md-4">

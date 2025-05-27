@@ -1,7 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import RechargeHistoryTab from './Tabs/RechargeHistoryTab';
+import OrderTab from './Tabs/OrderTab';
 
 const PaymentCenterScreen: React.FC = () => {
+  const [activeTab, setActiveTab] = useState('Đơn hàng');
+
+  const tabs = [
+    { label: 'Đơn hàng' },
+    { label: 'Lịch sử nạp tiền' },
+  ];
+
+  const renderContent = () => {
+    switch (activeTab) {
+      case 'Đơn hàng':
+        return OrderTab();
+      case 'Lịch sử nạp tiền':
+        return RechargeHistoryTab();
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className="container-fluid bg-light min-vh-100 p-4">
       <div className="row mb-4">
@@ -34,38 +54,23 @@ const PaymentCenterScreen: React.FC = () => {
       </div>
 
       <div className="bg-white rounded p-3">
-        <ul className="nav nav-tabs mb-3">
-          <li className="nav-item">
-            <a className="nav-link active" href="#">Đơn hàng</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">Lịch sử nạp tiền</a>
-          </li>
+        {/* Tabs */}
+        <ul className="nav nav-tabs mb-2">
+          {tabs.map((tab) => (
+            <li className="nav-item" key={tab.label}>
+              <button
+                className={`nav-link ${activeTab === tab.label ? 'active text-primary' : 'text-black bg-light border-light-subtle'}`}
+                onClick={() => setActiveTab(tab.label)}
+                style={{ marginRight: '2px' }}
+              >
+                {tab.label}
+              </button>
+            </li>
+          ))}
         </ul>
 
-        <div className="table-responsive">
-          <table className="table table-bordered text-center align-middle">
-            <thead className="table-light">
-              <tr>
-                <th>Dịch vụ</th>
-                <th>Số tiền</th>
-                <th>Gói cũ</th>
-                <th>Gói mới</th>
-                <th>Thời gian</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td colSpan={5} className="py-5 text-muted">
-                  <div className="d-flex flex-column align-items-center">
-                    <i className="bi bi-inbox" style={{ fontSize: '3rem' }}></i>
-                    <div>No data</div>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        {/* content */}
+        {renderContent()}
       </div>
     </div>
   );

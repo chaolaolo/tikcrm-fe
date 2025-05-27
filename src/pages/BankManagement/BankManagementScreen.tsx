@@ -4,19 +4,11 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 
 const BankManagementScreen: React.FC = () => {
   return (
-    <div className="container-fluid bg-light min-vh-100 p-4">
-      <div className="bg-white rounded shadow-sm p-4">
-        <h5 className="mb-4">Quản Lý Bank Account</h5>
-
-        {/* Filter + Action Buttons */}
-        <div className="row g-2 align-items-center mb-3">
-          <div className="col-md-4">
-            <input type="text" className="form-control" placeholder="Search anythings" />
-          </div>
-          <div className="col-md-2">
-            <select className="form-select">
-              <option>Trạng thái</option>
-            </select>
+    <div className="container-fluid bg-light min-vh-100 p-2">
+      <div className="bg-white rounded shadow-sm p-3 text-start">
+        <div className="row g-3 align-items-center mb-3">
+          <div className="col-md-6 text-start">
+          <h5 className="mb-4">Quản Lý Bank Account</h5>
           </div>
           <div className="col-md-6 text-end">
             <button className="btn btn-outline-primary me-2">
@@ -28,6 +20,19 @@ const BankManagementScreen: React.FC = () => {
             <button className="btn btn-outline-secondary">
               <i className="bi bi-arrow-clockwise me-1"></i>Refresh
             </button>
+          </div>
+        </div>
+        {/* Divider */}
+        <hr />
+        {/* Filter + Action Buttons */}
+        <div className="row g-2 align-items-center mb-3">
+          <div className="col-md-4">
+            <input type="text" className="form-control" placeholder="Search anythings" />
+          </div>
+          <div className="col-md-2">
+            <select className="form-select">
+              <option>Trạng thái</option>
+            </select>
           </div>
         </div>
 
