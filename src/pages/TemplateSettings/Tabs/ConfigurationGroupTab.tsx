@@ -5,7 +5,7 @@ const ConfigurationGroupTab = () => {
     <div>
       <div className="d-flex justify-content-end align-items-center mb-3">
         <div>
-          <button className="btn btn-outline-secondary me-2">
+          <button className="btn btn-outline-primary me-2">
             <i className="bi bi-arrow-clockwise me-1"></i>Refresh
           </button>
           <button className="btn btn-outline-primary me-2">
@@ -21,14 +21,21 @@ const ConfigurationGroupTab = () => {
         <table className="table table-bordered text-center" style={{ minWidth: '1200px' }}>
           <thead className="table-light">
             <tr>
-              <th>Vị trí</th>
-              <th>Name</th>
-              <th>Category Template</th>
-              <th>SKU Template</th>
-              <th>Description Template</th>
-              <th>DropShip Description Template</th>
-              <th>Ngày tạo</th>
-              <th>Hành động</th>
+              <th className="fw-medium text-center align-middle">Vị trí</th>
+              <th className="fw-medium text-center align-middle">Name</th>
+              <th className="fw-medium text-center align-middle">Category Template</th>
+              <th className="fw-medium text-center align-middle">SKU Template</th>
+              <th className="fw-medium text-center align-middle">Description Template</th>
+              <th className="fw-medium text-center align-middle">DropShip Description Template</th>
+              <th className="fw-medium text-center align-middle">Ngày tạo</th>
+              <th className="fw-medium text-center align-middle"
+                style={{
+                  minWidth: 120,
+                  position: 'sticky',
+                  right: 0,
+                  zIndex: 10,
+                  // boxShadow: '-2px 0 5px rgba(0, 0, 0, 0.05)',
+                }}>Actions</th>
             </tr>
           </thead>
           <tbody>

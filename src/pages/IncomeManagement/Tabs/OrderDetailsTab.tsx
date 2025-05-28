@@ -1,20 +1,23 @@
-import React from 'react'
+import React, { type FC } from 'react'
+import DateRangePicker from '../../../components/ui/DatePicker/DateRangePicker'
 
-const OrderDetailsTab = () => {
+const OrderDetailsTab: FC = () => {
+    const handleDateChange = ([start, end]: [Date | null, Date | null]) => {
+        console.log('Start:', start, 'End:', end);
+    };
+
+
     return (
         <div>
             {/* Filters */}
-            <div className="row g-2 mb-3">
+            <div className="row g-1 mb-3">
                 <div className="col-md-4">
                     <select className="form-select">
                         <option>All Stores</option>
                     </select>
                 </div>
-                <div className="col-md-4">
-                    <input type="date" className="form-control" placeholder="Start date" />
-                </div>
-                <div className="col-md-4">
-                    <input type="date" className="form-control" placeholder="End date" />
+                <div className="col-md-4 text-start">
+                    <DateRangePicker onChange={handleDateChange}/>
                 </div>
             </div>
 
@@ -23,20 +26,20 @@ const OrderDetailsTab = () => {
                 <table className="table table-bordered text-center" style={{ minWidth: '1400px' }}>
                     <thead className="table-light">
                         <tr>
-                            <th>#</th>
-                            <th>Statement date (UTC)</th>
-                            <th>Statement ID</th>
-                            <th>Payment ID</th>
-                            <th>Status</th>
-                            <th>Currency</th>
-                            <th>Type</th>
-                            <th>Order/adjustment ID</th>
-                            <th>Order status</th>
-                            <th>Total settlement amount</th>
-                            <th>Shop code</th>
-                            <th>Shop name</th>
-                            <th>Suggest name</th>
-                            <th>Name Seller</th>
+                            <th className='fw-medium text-center align-middle'>#</th>
+                            <th className='fw-medium text-center align-middle' style={{fontSize:'14px'}}>Statement date (UTC)</th>
+                            <th className='fw-medium text-center align-middle' style={{fontSize:'14px'}}>Statement ID</th>
+                            <th className='fw-medium text-center align-middle' style={{fontSize:'14px'}}>Payment ID</th>
+                            <th className='fw-medium text-center align-middle' style={{fontSize:'14px'}}>Status</th>
+                            <th className='fw-medium text-center align-middle' style={{fontSize:'14px'}}>Currency</th>
+                            <th className='fw-medium text-center align-middle' style={{fontSize:'14px'}}>Type</th>
+                            <th className='fw-medium text-center align-middle' style={{fontSize:'14px'}}>Order/adjustment ID</th>
+                            <th className='fw-medium text-center align-middle' style={{fontSize:'14px'}}>Order status</th>
+                            <th className='fw-medium text-center align-middle' style={{fontSize:'14px'}}>Total settlement amount</th>
+                            <th className='fw-medium text-center align-middle' style={{fontSize:'14px'}}>Shop code</th>
+                            <th className='fw-medium text-center align-middle' style={{fontSize:'14px'}}>Shop name</th>
+                            <th className='fw-medium text-center align-middle' style={{fontSize:'14px'}}>Suggest name</th>
+                            <th className='fw-medium text-center align-middle' style={{fontSize:'14px'}}>Name Seller</th>
                         </tr>
                     </thead>
                     <tbody>

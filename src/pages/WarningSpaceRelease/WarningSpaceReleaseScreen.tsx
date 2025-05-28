@@ -1,8 +1,14 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import DateRangePicker from '../../components/ui/DatePicker/DateRangePicker';
 
 const WarningSpaceReleaseScreen: React.FC = () => {
+
+  const handleDateChange = ([start, end]: [Date | null, Date | null]) => {
+    console.log('Start:', start, 'End:', end);
+  };
+
   return (
     <div className="container-fluid bg-light min-vh-100 p-2">
       <div className="bg-white rounded shadow-sm p-3">
@@ -21,11 +27,8 @@ const WarningSpaceReleaseScreen: React.FC = () => {
               <option>All Stores</option>
             </select>
           </div>
-          <div className="col-md-4">
-            <input type="date" className="form-control" placeholder="Start date" />
-          </div>
-          <div className="col-md-4">
-            <input type="date" className="form-control" placeholder="End date" />
+          <div className="col-md-4 text-start">
+            <DateRangePicker onChange={handleDateChange} />
           </div>
         </div>
 
@@ -34,20 +37,20 @@ const WarningSpaceReleaseScreen: React.FC = () => {
           <table className="table table-bordered text-center" style={{ minWidth: '1200px' }}>
             <thead className="table-light">
               <tr>
-                <th>ID</th>
-                <th>Ngày phát hiện</th>
-                <th>Seller</th>
-                <th>Trạng thái</th>
-                <th>Số tiền</th>
-                <th>Payment ID</th>
-                <th>Đơn hàng</th>
-                <th>Ngày paid</th>
-                <th>Bank account</th>
-                <th>Bank get</th>
-                <th>Ngày get bank</th>
-                <th>Shop name</th>
-                <th>Tên gợi nhớ</th>
-                <th>Shop code</th>
+                <th className='fw-medium text-center align-middle' style={{fontSize:'14px'}}>ID</th>
+                <th className='fw-medium text-center align-middle' style={{fontSize:'14px'}}>Ngày phát hiện</th>
+                <th className='fw-medium text-center align-middle' style={{fontSize:'14px'}}>Seller</th>
+                <th className='fw-medium text-center align-middle' style={{fontSize:'14px'}}>Trạng thái</th>
+                <th className='fw-medium text-center align-middle' style={{fontSize:'14px'}}>Số tiền</th>
+                <th className='fw-medium text-center align-middle' style={{fontSize:'14px'}}>Payment ID</th>
+                <th className='fw-medium text-center align-middle' style={{fontSize:'14px'}}>Đơn hàng</th>
+                <th className='fw-medium text-center align-middle' style={{fontSize:'14px'}}>Ngày paid</th>
+                <th className='fw-medium text-center align-middle' style={{fontSize:'14px'}}>Bank account</th>
+                <th className='fw-medium text-center align-middle' style={{fontSize:'14px'}}>Bank get</th>
+                <th className='fw-medium text-center align-middle' style={{fontSize:'14px'}}>Ngày get bank</th>
+                <th className='fw-medium text-center align-middle' style={{fontSize:'14px'}}>Shop name</th>
+                <th className='fw-medium text-center align-middle' style={{fontSize:'14px'}}>Tên gợi nhớ</th>
+                <th className='fw-medium text-center align-middle' style={{fontSize:'14px'}}>Shop code</th>
               </tr>
             </thead>
             <tbody>

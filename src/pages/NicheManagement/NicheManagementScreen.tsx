@@ -30,10 +30,16 @@ const NicheManagementScreen: React.FC = () => {
           <table className="table table-bordered text-center">
             <thead className="table-light">
               <tr>
-                <th>Niche Name</th>
-                <th>Parent Niche</th>
-                <th>Creation Date</th>
-                <th>Actions</th>
+                <th className="fw-medium text-center align-middle">Niche Name</th>
+                <th className="fw-medium text-center align-middle">Parent Niche</th>
+                <th className="fw-medium text-center align-middle">Creation Date</th>
+                <th className="fw-medium text-center align-middle" style={{
+                  width: '120px',
+                  position: 'sticky',
+                  right: 0,
+                  zIndex: 0,
+                  boxShadow: '-6px 0 6px -2px rgba(0,0,0,0.15)',
+                }}>Actions</th>
               </tr>
             </thead>
             <tbody>

@@ -109,17 +109,17 @@ const ProductManagementScreen: React.FC = () => {
             <thead className="table-light">
               <tr>
                 <th><input type="checkbox" /></th>
-                <th style={{ width: '100px' }}>Product Image</th>
-                <th style={{ width: '100px' }}>Product Name</th>
-                <th style={{ width: '100px' }}>Retail Price</th>
-                <th style={{ width: '100px' }}>Listing Quality <i className="bi bi-question-circle" title="Listing Quality Info"></i></th>
-                <th style={{ width: '100px' }}>Status <i className="bi bi-question-circle" title="Status Info"></i></th>
-                <th style={{ width: '100px' }}>Creation Date</th>
-                <th style={{
+                <th className="fw-medium text-center align-middle" style={{ width: '100px' }}>Product Image</th>
+                <th className="fw-medium text-center align-middle" style={{ width: '100px' }}>Product Name</th>
+                <th className="fw-medium text-center align-middle" style={{ width: '100px' }}>Retail Price</th>
+                <th className="fw-medium text-center align-middle" style={{ width: '100px' }}>Listing Quality <i className="bi bi-question-circle" title="Listing Quality Info"></i></th>
+                <th className="fw-medium text-center align-middle" style={{ width: '100px' }}>Status <i className="bi bi-question-circle" title="Status Info"></i></th>
+                <th className="fw-medium text-center align-middle" style={{ width: '100px' }}>Creation Date</th>
+                <th className="fw-medium text-center align-middle" style={{
                   width: '120px',
                   position: 'sticky',
                   right: 0,
-                  zIndex: 10,
+                  zIndex: 0,
                   boxShadow: '-6px 0 6px -2px rgba(0,0,0,0.15)',
                 }} >Actions</th>
               </tr>

@@ -19,13 +19,13 @@ const AccountSettingsScreen: React.FC = () => {
   const renderContent = () => {
     switch (activeTab) {
       case 1:
-        return AccountSettingsTab();
+        return <AccountSettingsTab />;
       case 2:
-        return NotificationTab();
+        return <NotificationTab />;
       case 3:
-        return ChangePasswordTab();
+        return <ChangePasswordTab />;
       case 4:
-        return MarketingTab();
+        return <MarketingTab />;
       default:
         return null;
     }
@@ -34,8 +34,8 @@ const AccountSettingsScreen: React.FC = () => {
   return (
     <div className="container-fluid bg-light min-vh-100 p-2">
       <div className="bg-white rounded shadow-sm p-3">
-        <h5 className="mb-4">Quản lý tài khoản</h5>
-
+        <h5 className="mb-4 text-start">Quản lý tài khoản</h5>
+        <hr />
         {/* Tabs */}
         <ul className="nav nav-tabs mb-2">
           {tabs.map((tab) => (

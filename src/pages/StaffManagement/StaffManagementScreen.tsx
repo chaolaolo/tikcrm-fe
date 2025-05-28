@@ -1,62 +1,57 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ActiveTab from './Tabs/ActiveTab';
+import InactiveTab from './Tabs/InactiveTab';
 
 const StaffManagementScreen: React.FC = () => {
-  return (
-    <div className="container-fluid bg-light min-vh-100 p-4">
-      <div className="bg-white rounded shadow-sm p-4">
-        <h5 className="mb-4">Quản lý nhân viên</h5>
+  const [activeTab, setActiveTab] = useState(1);
 
-        <div className="d-flex justify-content-between align-items-center mb-3">
-          <div className="btn-group" role="group">
-            <button type="button" className="btn btn-outline-primary active">Active</button>
-            <button type="button" className="btn btn-outline-secondary">Inactive</button>
-          </div>
+  const tabs = [
+    { id: 1, label: 'Active', icon: 'bi-check-circle' },
+    { id: 2, label: 'Inactive', icon: 'bi-hourglass' },
+  ];
+
+  const renderContent = () => {
+    switch (activeTab) {
+      case 1:
+        return <ActiveTab />;
+      case 2:
+        return <InactiveTab />;
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <div className="container-fluid bg-light min-vh-100 p-2">
+      <div className="bg-white rounded shadow-sm p-3">
+        <h5 className="mb-4 text-start">Quản lý nhân viên</h5>
+        <hr />
+        <div className="d-flex justify-content-end align-items-center mb-3">
           <div className="d-flex gap-2">
             <button className="btn btn-primary">Thêm nhân viên</button>
             <button className="btn btn-outline-primary">Refresh</button>
           </div>
         </div>
-
-        <div className="table-responsive">
-          <table className="table table-bordered align-middle text-center">
-            <thead className="table-light">
-              <tr>
-                <th>Email</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Vai trò</th>
-                <th>Xem đơn hàng của Team</th>
-                <th>SKU Prefix</th>
-                <th>Ngày tạo</th>
-                <th>Hành động</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>tranchaufw04@gmail.com</td>
-                <td>chau</td>
-                <td>tran</td>
-                <td>Owner</td>
-                <td><input type="checkbox" disabled /></td>
-                <td>TRANCHAUFW04_ZMTW</td>
-                <td>23/05/2025 23:33</td>
-                <td>-</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div className="d-flex justify-content-between align-items-center mt-3">
-          <span>Total 1 products</span>
-          <nav>
-            <ul className="pagination mb-0">
-              <li className="page-item active">
-                <span className="page-link">1</span>
-              </li>
-            </ul>
-          </nav>
-        </div>
+        {/* Tabs */}
+        <ul className="nav nav-tabs mb-2">
+          {tabs.map((tab) => (
+            <li className="nav-item" key={tab.label}>
+              <button
+                className={`nav-link ${activeTab === tab.id ? 'active text-primary' : 'text-black bg-light border-light-subtle'}`}
+                onClick={() => setActiveTab(tab.id)}
+                style={{ marginRight: '2px' }}
+              >
+                <i
+                  className={`bi ${tab.icon} me-2 ${activeTab === tab.id ? 'text-primary' : 'text-black'}`}
+                  style={{ width: '20px' }}
+                ></i>
+                {tab.label}
+              </button>
+            </li>
+          ))}
+        </ul>
+        {renderContent()}
       </div>
     </div>
   );

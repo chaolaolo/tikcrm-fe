@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Layout from '../Layouts/Layout';
 import './OrderTabs/OrderTabs.css';
+import DateRangePicker from '../../components/ui/DatePicker/DateRangePicker';
 
 
 const tabLabels = [
@@ -16,6 +17,10 @@ const OrderManagementScreen: React.FC = () => {
 
   const handleTabClick = (label: string) => {
     setActiveTab((prev) => (prev === label ? null : label));
+  };
+
+  const handleDateChange = ([start, end]: [Date | null, Date | null]) => {
+    console.log('Start:', start, 'End:', end);
   };
 
   return (
@@ -95,49 +100,40 @@ const OrderManagementScreen: React.FC = () => {
           </select>
         </div>
         <div className="col-12 col-md-3">
-          <input type="date" className="form-control" placeholder="Start date" />
+          <DateRangePicker onChange={handleDateChange} />
         </div>
-        <div className="col-12 col-md-3">
-          <input type="date" className="form-control" placeholder="End date" />
-        </div>
-        {/* <div className="col-6">
-          <div className="row g-2">
-            <div className="col-6">
-              <input type="date" className="form-control" placeholder="Start date" />
-            </div>
-            <div className="col-6">
-              <input type="date" className="form-control" placeholder="End date" />
-            </div>
-          </div>
-        </div> */}
       </div>
 
       {/* Orders Table */}
-      <div className="card">
-        <div className="card-body">
-          <table className="table table-striped">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Account / Seller</th>
-                <th>Order</th>
-                <th>Order info</th>
-                <th>Price</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td colSpan="6" className="text-center py-5 text-muted">
-                  <div className="d-flex flex-column align-items-center">
-                    <i className="bi bi-inbox" style={{ fontSize: '3rem', marginBottom: '1rem' }}></i>
-                    <span>No data</span>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+      <div className="table-responsive" style={{ position: 'relative' }}>
+        <table className="table table-bordered text-center">
+          <thead className="table-light">
+            <tr>
+              <th className="fw-medium text-center align-middle" >ID</th>
+              <th className="fw-medium text-center align-middle" >Account / Seller</th>
+              <th className="fw-medium text-center align-middle" >Order</th>
+              <th className="fw-medium text-center align-middle" >Order info</th>
+              <th className="fw-medium text-center align-middle" >Price</th>
+              <th className="fw-medium text-center align-middle" style={{
+                width: '120px',
+                position: 'sticky',
+                right: 0,
+                zIndex: 0,
+                boxShadow: '-6px 0 6px -2px rgba(0,0,0,0.15)',
+              }} >Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colSpan={8} className="py-5 text-muted">
+                <div className="d-flex flex-column align-items-center">
+                  <i className="bi bi-inbox" style={{ fontSize: '3rem' }}></i>
+                  <div>No data</div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   );

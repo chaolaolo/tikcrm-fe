@@ -19,21 +19,21 @@ const IncomeManagementScreen: React.FC = () => {
   const renderContent = () => {
     switch (activeTab) {
       case 1:
-        return OrderDetailsTab();
+        return <OrderDetailsTab/>;
       case 2:
-        return StatementsTab();
+        return <StatementsTab/>;
       case 3:
-        return PaymentsTab();
+        return <PaymentsTab/>;
       case 4:
-        return ReserveDetailsTab();
+        return <ReserveDetailsTab/>;
       default:
         return null;
     }
   };
 
   return (
-    <div className="container-fluid bg-light min-vh-100 p-4">
-      <div className="bg-white rounded shadow-sm p-4">
+    <div className="container-fluid bg-light min-vh-100 p-2">
+      <div className="bg-white rounded shadow-sm p-3">
         <div className="d-flex justify-content-between align-items-center mb-3">
           <h5 className="mb-0">Quản lý tiền về</h5>
           <div>

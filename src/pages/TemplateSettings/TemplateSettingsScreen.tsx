@@ -22,15 +22,15 @@ const TemplateSettingsScreen: React.FC = () => {
   const renderContent = () => {
     switch (activeTab) {
       case 1:
-        return ConfigurationGroupTab();
+        return <ConfigurationGroupTab />;
       case 2:
-        return CategoryConfigurationTab();
+        return <CategoryConfigurationTab />;
       case 3:
-        return SKUConfigurationTab();
+        return <SKUConfigurationTab />;
       case 4:
-        return Description1ConfigTab();
+        return <Description1ConfigTab />;
       case 5:
-        return Description2ConfigTab();
+        return <Description2ConfigTab />;
       default:
         return null;
     }
@@ -38,13 +38,11 @@ const TemplateSettingsScreen: React.FC = () => {
 
 
   return (
-    <div className="container-fluid bg-light min-vh-100 p-4">
-      <div className="bg-white rounded shadow-sm p-4">
+    <div className="container-fluid bg-light min-vh-100 p-2">
+      <div className="bg-white rounded shadow-sm p-2">
         {/* Header */}
-        <div className="d-flex justify-content-between align-items-center mb-3">
-          <h5 className="mb-0">Cài đặt Template</h5>
-        </div>
-
+        <h5 className="mb-0 text-start">Cài đặt Template</h5>
+        <hr />
         {/* Tabs */}
         <ul className="nav nav-tabs mb-2">
           {tabs.map((tab) => (

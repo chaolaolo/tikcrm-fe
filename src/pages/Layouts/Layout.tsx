@@ -17,6 +17,10 @@ import AccountSettingsScreen from '../AccountSettings/AccountSettingsScreen';
 import TemplateSettingsScreen from '../TemplateSettings/TemplateSettingsScreen';
 import IncomeManagementScreen from '../IncomeManagement/IncomeManagementScreen';
 import WarningSpaceReleaseScreen from '../WarningSpaceRelease/WarningSpaceReleaseScreen';
+import { Link } from 'react-router-dom';
+import './Layout.css';
+import telegramIcon from '../../assets/telegramlogo.png';
+
 
 interface LayoutProps {
     children?: React.ReactNode;
@@ -47,7 +51,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             case 'niche-management':
                 return <NicheManagementScreen />;
             case 'auto-listing':
-                return <AutoListingScreen isCollapsed={isCollapsed}  />;
+                return <AutoListingScreen isCollapsed={isCollapsed} />;
             case 'promotions':
                 return <PromotionsScreen />;
             case 'task-management':
@@ -417,7 +421,34 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                             >Cài đặt Template</span>}
                         </a>
                     </div>
+
+
                 </div>
+                {/* Sidebar Footer */}
+                <div className="ms-4 mt-auto mb-4 px-1">
+                    <a
+                        href="#"
+                        className={`d-flex align-items-center text-decoration-none py-3 px-2 rounded mb-1 text-white-50 bg-secondary`}
+                        onClick={(e) => { e.preventDefault(); handleMenuClick(''); }}
+                    >
+                        {!isCollapsed && (<span
+                            className='text-start'
+                            style={{
+                                fontSize: '14px',
+                                fontFamily: 'Arial, sans-serif',
+                                wordBreak: 'break-all',
+                            }}
+                        >Gói của bạn</span>)}
+                        <span
+                            className={`ms-auto text-warning`}
+                            style={{
+                                fontSize: '14px',
+                                whiteSpace: isCollapsed ? 'normal' : 'nowrap',
+                            }}
+                        >Free 0/8</span>
+                    </a>
+                </div>
+
             </div>
 
             {/* Main Content */}
@@ -443,32 +474,62 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                         </button>
 
                         <div className="d-flex align-items-center ms-auto">
-                            <span className="me-3 text-primary">Chat với khách hàng</span>
-                            <span className="me-3">chaolaolo290604@gmail.com - Owner</span>
+                            <Link to="/"
+                                className="chat-w-customer fw-normal me-3 text-decoration-none"
+                                style={{
+                                    fontSize: '16px',
+                                    color: '#47bac1',
+                                    textDecoration: 'none'
+                                }}>
+                                Chat với khách hàng
+                            </Link>
                             <div className="dropdown">
                                 <button
-                                    className="btn btn-sm btn-outline-secondary dropdown-toggle"
+                                    className="btn dropdown-toggle border-0 bg-transparent text-dark px-0"
                                     type="button"
                                     data-bs-toggle="dropdown"
+                                    aria-expanded="false"
+                                    style={{ fontSize: '16px' }}
                                 >
-                                    <i className="bi bi-person-circle"></i>
+                                    tranchaufw04@gmail.com - Owner
                                 </button>
-                                <ul className="dropdown-menu">
-                                    <li><a className="dropdown-item" href="#">Profile</a></li>
-                                    <li><a className="dropdown-item" href="#">Settings</a></li>
-                                    <li><hr className="dropdown-divider" /></li>
-                                    <li><a className="dropdown-item" href="#">Logout</a></li>
+                                <ul className="dropdown-menu dropdown-menu-end shadow-sm">
+                                    <li>
+                                        <a className="dropdown-item text-center" style={{ fontSize: '15px' }}>
+                                            <i className='bi bi-person me-2'></i>Profile</a>
+                                        <li><hr className="dropdown-divider" /></li>
+                                        <a className="dropdown-item text-center" style={{ fontSize: '15px' }}>
+                                            <i className='bi bi-gear me-2'></i>Settings</a>
+                                        <li><hr className="dropdown-divider" /></li>
+                                        <a className="dropdown-item text-center" style={{ fontSize: '15px' }}>
+                                            <i className='bi bi-box-arrow-right me-2'></i>Sign out</a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </nav>
 
+                {/* nút bấm chat */}
+                <Link to="/"
+                    className="rounded-circle"
+                    style={{
+                        position: 'fixed',
+                        bottom: '20px',
+                        right: '20px',
+                        zIndex: 10,
+                        cursor: 'pointer',
+                        transition: 'opacity 0.2s ease-in-out'
+                    }}
+                >
+                    <img src={telegramIcon} alt="Telegram Chat" style={{ width: '50px', height: '50px' }} />
+                </Link>
+
                 {/* Page Content */}
                 <main className="p-4" style={{
                     overflowY: 'auto',
                     overflowX: 'hidden',
-                    height: 'calc(100vh - 64px)', /* Trừ đi chiều cao của navbar */
+                    height: 'calc(100vh - 64px)',
                     width: '100%',
                     flexGrow: 1
                 }}>
