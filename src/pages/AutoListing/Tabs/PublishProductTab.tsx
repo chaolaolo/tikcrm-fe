@@ -180,28 +180,46 @@ const PublishProductTab: FC<Props> = (isCollapsed) => {
                         <span className="text-danger me-1">*</span>
                         <label className="form-label mb-1">Package Weight</label>
                     </div>
-                    <input className="form-control" placeholder="Chọn đơn vị" />
+                    <div className="form-control d-flex p-0" >
+                        <input
+                            type="number"
+                            className="form-control rounded-0 rounded-start"
+                            placeholder='Enter product weight' />
+                        <select className="form-select bg-secondary-subtle rounded-0 rounded-end">
+                            <option hidden>
+                                Chọn đơn vị
+                            </option>
+                            <option>GRAM(g)</option>
+                            <option>KILOGRAM(kg)</option>
+                        </select>
+                    </div>
                 </div>
                 <div className="col-md-3">
                     <div className="d-flex align-items-center">
                         <span className="text-danger me-1">*</span>
                         <label className="form-label mb-1">Height</label>
                     </div>
-                    <input className="form-control" placeholder="Enter product Height" />
+                    <input
+                        type="number"
+                        className="form-control" placeholder="Enter product Height" />
                 </div>
                 <div className="col-md-3">
                     <div className="d-flex align-items-center">
                         <span className="text-danger me-1">*</span>
                         <label className="form-label mb-1">Width</label>
                     </div>
-                    <input className="form-control" placeholder="Enter product Width" />
+                    <input
+                        type="number"
+                        className="form-control" placeholder="Enter product Width" />
                 </div>
                 <div className="col-md-3">
                     <div className="d-flex align-items-center">
                         <span className="text-danger me-1">*</span>
                         <label className="form-label mb-1">Length</label>
                     </div>
-                    <input className="form-control" placeholder="Enter product Length" />
+                    <input
+                        type="number"
+                        className="form-control" placeholder="Enter product Length" />
                 </div>
                 <div className="col-md-3">
                     <div className="d-flex align-items-center">
@@ -220,6 +238,7 @@ const PublishProductTab: FC<Props> = (isCollapsed) => {
             <div className="mb-3 text-start">
                 <div className='col-md-6'>
                     <select className="form-select mb-3 bg-secondary-subtle">
+                        <option hidden className='text-primary'>Select an available Size, Price template</option>
                         <option>MANUALLY ENTER SIZE, PRICE</option>
                     </select>
                 </div>

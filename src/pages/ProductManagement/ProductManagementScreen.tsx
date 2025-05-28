@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import DateRangePicker from '../../components/ui/DatePicker/DateRangePicker';
 
 const ProductManagementScreen: React.FC = () => {
   const [activeTab, setActiveTab] = useState(1);
@@ -14,7 +15,9 @@ const ProductManagementScreen: React.FC = () => {
     { id: 6, label: 'ALL', icon: 'bi-list' },
   ];
 
-
+  const handleDateChange = ([start, end]: [Date | null, Date | null]) => {
+    console.log('Start:', start, 'End:', end);
+  };
 
   return (
     <div className="container-fluid bg-light min-vh-100 p-2">
@@ -60,7 +63,7 @@ const ProductManagementScreen: React.FC = () => {
         </div>
 
         {/* Filters Row 2 */}
-        <div className="row g-2 mb-3">
+        <div className="d-flex gap-2 mb-3">
           <div className="col-md-3">
             <select className="form-select">
               <option>All Stores</option>
@@ -76,15 +79,8 @@ const ProductManagementScreen: React.FC = () => {
               <option>Filter by Listing Quality</option>
             </select>
           </div>
-          <div className="col-md-3">
-            <div className="d-flex">
-              <input type="date" className="form-control" placeholder="Start date" />
-            </div>
-          </div>
-          <div className="col-md-3">
-            <div className="d-flex">
-              <input type="date" className="form-control" placeholder="End date" />
-            </div>
+          <div col-md-3>
+            <DateRangePicker onChange={handleDateChange} />
           </div>
         </div>
 

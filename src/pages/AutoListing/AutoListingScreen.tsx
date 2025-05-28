@@ -25,11 +25,11 @@ const AutoListingScreen: React.FC<AutoListingScreenProps> = ({ isCollapsed }) =>
       case 1:
         return <PublishProductTab isCollapsed={isCollapsed} />;;
       case 2:
-        return DraftTab();
+        return <DraftTab />;
       case 3:
-        return ScheduledListTab();
+        return <ScheduledListTab/>;
       case 4:
-        return ProductPublishingProgressTab();
+        return <ProductPublishingProgressTab/>;
       default:
         return null;
     }
