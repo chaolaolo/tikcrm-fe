@@ -17,11 +17,11 @@ const PromotionsScreen: React.FC = () => {
   const renderContent = () => {
     switch (activeTab) {
       case 'Tạo Promotions':
-        return CreatePromotionsTab();
+        return <CreatePromotionsTab />;
       case 'Danh sách Promotions':
-        return ListPromotionsTab();
+        return <ListPromotionsTab />;
       case 'Cấu hình đã lưu':
-        return SavedConfigurationTab();
+        return <SavedConfigurationTab />;
       default:
         return null;
     }
@@ -29,15 +29,17 @@ const PromotionsScreen: React.FC = () => {
 
 
   return (
-    <div className="container-fluid bg-light min-vh-100 p-4">
-      <div className="bg-white rounded shadow-sm p-4">
-        <h5 className="mb-4">Quản lý Promotions</h5>
-
+    <div className="container-fluid bg-light min-vh-100 p-2">
+      <div className="bg-white rounded shadow-sm p-3 ">
+        <h6 className="mb-4 text-start">Quản lý Promotions</h6>
+        <hr />
         {/* Store Dropdown */}
-        <div className="mb-3">
-          <select className="form-select w-auto">
-            <option>All Stores</option>
-          </select>
+        <div className="row mb-3">
+          <div className="col-md-5">
+            <select className="form-select">
+              <option>All Stores</option>
+            </select>
+          </div>
         </div>
 
         {/* Tabs */}
@@ -55,8 +57,8 @@ const PromotionsScreen: React.FC = () => {
           ))}
         </ul>
 
-       {renderContent()}
-    </div>
+        {renderContent()}
+      </div>
     </div>
   );
 };

@@ -258,11 +258,11 @@ const PublishProductTab: FC<Props> = (isCollapsed) => {
                 <table className="table table-bordered">
                     <thead className="table-light">
                         <tr>
-                            <th className='fw-normal'>Retail price</th>
-                            <th className='fw-normal'>List price</th>
-                            <th className='fw-normal'>Số lượng</th>
-                            <th className='fw-normal'>Seller SKU</th>
-                            <th className='fw-normal'>Action</th>
+                            <th className='fw-medium'>Retail price</th>
+                            <th className='fw-medium'>List price</th>
+                            <th className='fw-medium'>Số lượng</th>
+                            <th className='fw-medium'>Seller SKU</th>
+                            <th className='fw-medium'>Action</th>
                         </tr>
                     </thead>
                     <tbody>

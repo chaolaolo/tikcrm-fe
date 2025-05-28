@@ -8,7 +8,7 @@ const BankManagementScreen: React.FC = () => {
       <div className="bg-white rounded shadow-sm p-3 text-start">
         <div className="row g-3 align-items-center mb-3">
           <div className="col-md-6 text-start">
-          <h5 className="mb-4">Quản Lý Bank Account</h5>
+            <h5 className="mb-4">Quản Lý Bank Account</h5>
           </div>
           <div className="col-md-6 text-end">
             <button className="btn btn-outline-primary me-2">
@@ -41,21 +41,27 @@ const BankManagementScreen: React.FC = () => {
           <table className="table table-bordered text-center">
             <thead className="table-light">
               <tr>
-                <th>ID</th>
-                <th>Ngày upload</th>
-                <th>Người upload</th>
-                <th>Bank name</th>
-                <th>Account number</th>
-                <th>Routing number</th>
-                <th>Swift code</th>
-                <th>Region</th>
-                <th>Ghi chú</th>
-                <th>Tình trạng</th>
-                <th>Shop</th>
-                <th>Platform</th>
-                <th>Ngày setup bank</th>
-                <th>Nhân sự</th>
-                <th>Hành động</th>
+                <th className="fw-medium text-center align-middle" style={{ minWidth: 50 }}>ID</th>
+                <th className="fw-medium text-center align-middle" style={{ minWidth: 150 }}>Ngày upload</th>
+                <th className="fw-medium text-center align-middle" style={{ minWidth: 150 }}>Người upload</th>
+                <th className="fw-medium text-center align-middle" style={{ minWidth: 150 }}>Bank name</th>
+                <th className="fw-medium text-center align-middle" style={{ minWidth: 150 }}>Account number</th>
+                <th className="fw-medium text-center align-middle" style={{ minWidth: 150 }}>Routing number</th>
+                <th className="fw-medium text-center align-middle" style={{ minWidth: 150 }}>Swift code</th>
+                <th className="fw-medium text-center align-middle" style={{ minWidth: 150 }}>Region</th>
+                <th className="fw-medium text-center align-middle" style={{ minWidth: 150 }}>Ghi chú</th>
+                <th className="fw-medium text-center align-middle" style={{ minWidth: 150 }}>Tình trạng</th>
+                <th className="fw-medium text-center align-middle" style={{ minWidth: 150 }}>Shop</th>
+                <th className="fw-medium text-center align-middle" style={{ minWidth: 150 }}>Platform</th>
+                <th className="fw-medium text-center align-middle" style={{ minWidth: 150 }}>Ngày setup bank</th>
+                <th className="fw-medium text-center align-middle" style={{ minWidth: 150 }}>Nhân sự</th>
+                <th className="fw-medium text-center align-middle" style={{
+                  minWidth: 120,
+                  position: 'sticky',
+                  right: 0,
+                  zIndex: 10,
+                  // boxShadow: '-2px 0 5px rgba(0, 0, 0, 0.05)',
+                }}>Actions</th>
               </tr>
             </thead>
             <tbody>

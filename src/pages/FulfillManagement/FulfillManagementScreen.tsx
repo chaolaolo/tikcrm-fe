@@ -60,9 +60,10 @@ const fulfillments = [
 
 const FulfillManagementScreen: React.FC = () => {
   return (
-    <div className="container-fluid bg-light min-vh-100 p-4">
-      <div className="bg-white rounded shadow-sm p-4">
-        <h5 className="mb-4">Quản lý fulfill</h5>
+    <div className="container-fluid bg-light min-vh-100 p-2">
+      <div className="bg-white rounded shadow-sm p-3">
+        <h5 className="mb-4 text-start">Quản lý fulfill</h5>
+        <hr />
         <ul className="list-group list-group-flush text-start">
           {fulfillments.map((item, index) => (
             <li
