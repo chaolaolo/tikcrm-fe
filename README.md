@@ -1,54 +1,52 @@
-# React + TypeScript + Vite
+# TikCRM Frontend (tikcrm-fe)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+TikCRM là hệ thống quản lý khách hàng (CRM) giúp tự động hóa quy trình bán hàng, quản lý sản phẩm, đơn hàng, người dùng và chiến dịch tiếp thị. Đây là phần giao diện người dùng (frontend) được xây dựng bằng **React**, **TypeScript** và **Bootstrap**.
 
-Currently, two official plugins are available:
+## 🚀 Tính năng chính
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Quản lý đơn hàng, sản phẩm, chiến dịch khuyến mãi
+- Tự động đăng sản phẩm
+- Hệ thống phân quyền người dùng
+- Quản lý ngân hàng, thanh toán và nhiệm vụ
+- Giao diện trực quan, responsive với Bootstrap 5
+- Kết nối API linh hoạt
 
-## Expanding the ESLint configuration
+## 🛠️ Công nghệ sử dụng
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **React**
+- **TypeScript**
+- **React Bootstrap**
+- **React Router**
+- **Ant Design (một phần)**
+- **Axios** - Gọi API
+- **React Icons**, **Bootstrap Icons**
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 📦 Cài đặt
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Yêu cầu
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Node.js >= 18
+- `npm` hoặc `pnpm` (dự án hiện hỗ trợ cả hai)
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+### Các bước
+
+```bash
+# Clone repo
+git clone https://github.com/chaolaolo/tikcrm-fe.git
+cd tikcrm-fe
+
+# Cài đặt package
+npm install
+
+# Lệnh khởi chạy
+npm run dev
+````
+Ứng dụng sẽ chạy tại http://localhost:3000
+
+## 📱 Giao diện chính
+<table>
+  <tr>
+  </tr>
+  <tr>
+  </tr>
+</table>
