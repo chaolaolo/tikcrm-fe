@@ -26,7 +26,7 @@ TikCRM là hệ thống quản lý khách hàng (CRM) giúp tự động hóa qu
 ### Yêu cầu
 
 - Node.js >= 18
-- `npm` hoặc `pnpm` (dự án hiện hỗ trợ cả hai)
+- `npm`
 
 ### Các bước
 
