@@ -1,11 +1,14 @@
 import React, { type FC } from 'react'
 import ProductDescriptionForm from './TextEditor'
+import { useTranslation } from 'react-i18next';
 
 interface Props {
     isCollapsed: boolean;
 }
 
 const PublishProductTab: FC<Props> = (isCollapsed) => {
+    const {t} = useTranslation();
+
     return (
         <div>
             {/* Market, Niche, Schedule Date */}
@@ -13,30 +16,30 @@ const PublishProductTab: FC<Props> = (isCollapsed) => {
                 <div className="col-md-4 text-start">
                     <div className="d-flex align-items-center">
                         <span className="text-danger me-1">*</span>
-                        <label className="mb-0">Thị trường bán hàng</label>
+                        <label className="mb-0">{t('autoListing.market.label')}</label>
                     </div>
 
                     <div className="form-check">
                         <input className="form-check-input" type="radio" name="market" defaultChecked />
-                        <label className="form-check-label">US</label>
+                        <label className="form-check-label">{t('autoListing.market.options.us')}</label>
                     </div>
                     <div className="form-check">
                         <input className="form-check-input" type="radio" name="market" />
-                        <label className="form-check-label">NON-US (UK, JP, DE, ES, FR, IE, IT...)</label>
+                        <label className="form-check-label">{t('autoListing.market.options.nonUs')}</label>
                     </div>
-                    <small className="text-muted">Vui lòng chọn thị trường bán hàng trước khi đăng sản phẩm</small>
+                    <small className="text-muted">{t('autoListing.market.note')}</small>
                 </div>
                 <div className="col-md-4 text-start">
-                    <label className="form-label">Filter Shop By Niche</label>
+                    <label className="form-label">{t('autoListing.filter.niche')}</label>
                     <select className="form-select">
-                        <option>Filter shop by niche</option>
+                        <option>{t('autoListing.filter.niche')}</option>
                     </select>
                 </div>
                 <div className="col-md-4 text-start">
-                    <label className="form-label">Schedule product posting</label>
+                    <label className="form-label">{t('autoListing.schedule.label')}</label>
                     <input type="date" className="form-control" />
-                    <small className="text-secondary">Timezone: America/Los_Angeles<br /></small>
-                    <small className="text-danger">Skip if you want to publish the product immediately!!!</small>
+                    <small className="text-secondary">{t('autoListing.schedule.timezone')}<br /></small>
+                    <small className="text-danger">{t('autoListing.schedule.note')}</small>
                 </div>
             </div>
 
@@ -44,22 +47,22 @@ const PublishProductTab: FC<Props> = (isCollapsed) => {
             <div className="mb-3 text-start">
                 <div className="d-flex align-items-center">
                     <span className="text-danger me-1">*</span>
-                    <label className="mb-0">Shop</label>
+                    <label className="mb-0">{t('autoListing.shop.label')}</label>
                 </div>
                 <select className="form-select">
-                    <option>Please select shop</option>
+                    <option>{t('autoListing.schedule.placeholder')}</option>
                 </select>
             </div>
 
             {/* Upload image */}
             <div className="d-flex align-items-end mb-1">
                 <span className="text-danger me-1">*</span>
-                <label className="form-label mb-0">Product Images</label>
+                <label className="form-label mb-0">{t('autoListing.images.label')}</label>
                 <i className="bi bi-question-circle ms-1 text-muted" style={{ fontSize: '14px' }}></i>
             </div>
             <div className="mb-3 border rounded text-center p-5 border-primary" style={{ borderStyle: 'dashed' }}>
                 <i className="bi bi-upload" style={{ fontSize: '2rem' }}></i>
-                <p className="mt-2">Click or drag file to this area to upload</p>
+                <p className="mt-2">{t('autoListing.images.tooltip')}</p>
                 <small className="text-muted">Support for a single or bulk upload. Strictly prohibited from uploading company data or other banned files.</small>
             </div>
 
@@ -68,11 +71,11 @@ const PublishProductTab: FC<Props> = (isCollapsed) => {
                 <div className="col-md-12 text-start">
                     <div className="d-flex align-items-end mb-1">
                         <span className="text-danger me-1">*</span>
-                        <label className="form-label mb-0">Title</label>
+                        <label className="form-label mb-0">{t('autoListing.titleField.label')}</label>
                         <i className="bi bi-question-circle ms-1 text-muted" style={{ fontSize: '14px' }}></i>
                     </div>
-                    <textarea className="form-control" placeholder="Nhập tên sản phẩm..." rows={2}></textarea>
-                    <small className="text-muted">Recommended length: 40 characters or more. The category will be automatically identified by the product name.</small>
+                    <textarea className="form-control" placeholder={t('autoListing.titleField.placeholder')} rows={2}></textarea>
+                    <small className="text-muted">{t('autoListing.titleField.note')}</small>
                 </div>
             </div>
 
@@ -80,10 +83,10 @@ const PublishProductTab: FC<Props> = (isCollapsed) => {
                 <div className="col-md-6">
                     <div className="d-flex align-items-end mb-1">
                         <span className="text-primary me-1 fw-bold">*</span>
-                        <label className="form-label text-primary mb-0 fw-bold">Chọn nhóm mẫu sẵn có</label>
+                        <label className="form-label text-primary mb-0 fw-bold">{t('autoListing.templateGroup')}</label>
                     </div>
                     <select className="form-select">
-                        <option value="">Chọn nhóm mẫu sẵn có</option>
+                        <option value="">{t('autoListing.templateGroup')}</option>
                     </select>
                 </div>
             </div>
@@ -92,16 +95,16 @@ const PublishProductTab: FC<Props> = (isCollapsed) => {
                 <div className="col-md-6">
                     <div className="d-flex align-items-end mb-1">
                         <span className="text-primary me-1 fw-bold">*</span>
-                        <label className="form-label text-primary mb-0 fw-bold">Select Category Template</label>
+                        <label className="form-label text-primary mb-0 fw-bold">{t('autoListing.categoryTemplate')}</label>
                     </div>
                     <select className="form-select bg-secondary-subtle">
-                        <option>Select Category Template</option>
+                        <option>{t('autoListing.categoryTemplate')}</option>
                     </select>
                 </div>
                 <div className="col-md-6">
                     <div className="d-flex align-items-end mb-1">
                         <span className="text-danger me-1 fw-bold">*</span>
-                        <label className="form-label text-black mb-0">Brand</label>
+                        <label className="form-label text-black mb-0">{t('autoListing.brand')}</label>
                     </div>
                     <select className="form-select">
                         <option>Select brand</option>
@@ -113,7 +116,7 @@ const PublishProductTab: FC<Props> = (isCollapsed) => {
                 <div className="col-md-6">
                     <div className="d-flex align-items-end mb-1">
                         <span className="text-danger me-1">*</span>
-                        <label className="form-label mb-0">Category</label>
+                        <label className="form-label mb-0">{t('autoListing.category')}</label>
                         <i className="bi bi-question-circle ms-1 text-muted" style={{ fontSize: '14px' }}></i>
                     </div>
                     <select className="form-select">
@@ -124,7 +127,7 @@ const PublishProductTab: FC<Props> = (isCollapsed) => {
             <div className="row g-3 mb-3">
                 <div className="col-md-4">
                     <div className="d-flex align-items-end mb-1">
-                        <label className="form-label mb-0 fw-bold">Size Chart</label>
+                        <label className="form-label mb-0 fw-bold">{t('autoListing.sizeChart')}</label>
                         <i className="bi bi-question-circle ms-1 text-muted" style={{ fontSize: '14px' }}></i>
                     </div>
                     <div className="card text-center p-4" style={{ height: '130px' }}>
@@ -134,7 +137,7 @@ const PublishProductTab: FC<Props> = (isCollapsed) => {
                 </div>
                 <div className="col-md-4">
                     <div className="d-flex align-items-end mb-1">
-                        <label className="form-label mb-0 fw-bold">Video</label>
+                        <label className="form-label mb-0 fw-bold">{t('autoListing.video')}</label>
                         <i className="bi bi-question-circle ms-1 text-muted" style={{ fontSize: '14px' }}></i>
                     </div>
                     <div className="card text-center p-4" style={{ height: '130px' }}>
@@ -149,7 +152,7 @@ const PublishProductTab: FC<Props> = (isCollapsed) => {
                 <div className="col-md-6">
                     <div className="d-flex align-items-end mb-1">
                         <span className="text-primary me-1 fw-bold">*</span>
-                        <label className="form-label text-primary mb-0 fw-bold">Select an available description template</label>
+                        <label className="form-label text-primary mb-0 fw-bold">{t('autoListing.description.template1')}</label>
                     </div>
                     <select className="form-select bg-secondary-subtle">
                         <option>MANUALLY ENTER DESCRIPTION</option>
@@ -158,7 +161,7 @@ const PublishProductTab: FC<Props> = (isCollapsed) => {
                 <div className="col-md-6">
                     <div className="d-flex align-items-end mb-1">
                         <span className="text-primary me-1 fw-bold">*</span>
-                        <label className="form-label text-primary mb-0 fw-bold">Chọn mẫu description 2 có sẵn</label>
+                        <label className="form-label text-primary mb-0 fw-bold">{t('autoListing.description.template2')}</label>
                     </div>
                     <select className="form-select bg-secondary-subtle">
                         <option>NHẬP TAY MẪU</option>
@@ -168,7 +171,7 @@ const PublishProductTab: FC<Props> = (isCollapsed) => {
 
             <div className="mb-3">
                 <div className="d-flex align-items-end mb-1">
-                    <label className="form-label mb-0">Mô tả</label>
+                    <label className="form-label mb-0">{t('autoListing.description.label')}</label>
                     <i className="bi bi-question-circle ms-1 text-muted" style={{ fontSize: '14px' }}></i>
                 </div>
                 <ProductDescriptionForm />
@@ -178,7 +181,7 @@ const PublishProductTab: FC<Props> = (isCollapsed) => {
                 <div className="col-md-3">
                     <div className="d-flex align-items-center">
                         <span className="text-danger me-1">*</span>
-                        <label className="form-label mb-1">Package Weight</label>
+                        <label className="form-label mb-1">{t('autoListing.dimension.weight')}</label>
                     </div>
                     <div className="form-control d-flex p-0" >
                         <input
@@ -197,7 +200,7 @@ const PublishProductTab: FC<Props> = (isCollapsed) => {
                 <div className="col-md-3">
                     <div className="d-flex align-items-center">
                         <span className="text-danger me-1">*</span>
-                        <label className="form-label mb-1">Height</label>
+                        <label className="form-label mb-1">{t('autoListing.dimension.height')}</label>
                     </div>
                     <input
                         type="number"
@@ -206,7 +209,7 @@ const PublishProductTab: FC<Props> = (isCollapsed) => {
                 <div className="col-md-3">
                     <div className="d-flex align-items-center">
                         <span className="text-danger me-1">*</span>
-                        <label className="form-label mb-1">Width</label>
+                        <label className="form-label mb-1">{t('autoListing.dimension.width')}</label>
                     </div>
                     <input
                         type="number"
@@ -215,7 +218,7 @@ const PublishProductTab: FC<Props> = (isCollapsed) => {
                 <div className="col-md-3">
                     <div className="d-flex align-items-center">
                         <span className="text-danger me-1">*</span>
-                        <label className="form-label mb-1">Length</label>
+                        <label className="form-label mb-1">{t('autoListing.dimension.length')}</label>
                     </div>
                     <input
                         type="number"
@@ -224,31 +227,31 @@ const PublishProductTab: FC<Props> = (isCollapsed) => {
                 <div className="col-md-3">
                     <div className="d-flex align-items-center">
                         <span className="text-danger me-1">*</span>
-                        <label className="form-label mb-1">Unit</label>
+                        <label className="form-label mb-1">{t('autoListing.dimension.unit')}</label>
                     </div>
-                    <input className="form-control" placeholder="Nhập Unit" />
+                    <input className="form-control" placeholder={t('autoListing.dimension.unitPlaceholder')} />
                 </div>
             </div>
 
             {/* Size/Color */}
             <div className="mt-5 d-flex align-items-end mb-1">
                 <span className="text-primary me-1 fw-bold">*</span>
-                <label className="form-label text-primary mb-0 fw-bold">Select an available Size, Price template</label>
+                <label className="form-label text-primary mb-0 fw-bold">{t('autoListing.priceTemplate')}</label>
             </div>
             <div className="mb-3 text-start">
                 <div className='col-md-6'>
                     <select className="form-select mb-3 bg-secondary-subtle">
-                        <option hidden className='text-primary'>Select an available Size, Price template</option>
+                        <option hidden className='text-primary'>{t('autoListing.priceTemplate')}</option>
                         <option>MANUALLY ENTER SIZE, PRICE</option>
                     </select>
                 </div>
                 <div className='row g-2 justify-content-between align-items-center'>
                     <div className='col-auto d-flex gap-2'>
-                        <button className="btn btn-outline-primary me-2 w-100vh">Thêm biến thể</button>
-                        <button className="btn btn-outline-primary w-100vh">Tạo SKU</button>
+                        <button className="btn btn-outline-primary me-2 w-100vh">{t('autoListing.actions.addVariant')}</button>
+                        <button className="btn btn-outline-primary w-100vh">{t('autoListing.actions.createSku')}</button>
                     </div>
                     <div className='col-auto'>
-                        <button className="btn btn-outline-info w-100vh">Cập nhật hàng loạt</button>
+                        <button className="btn btn-outline-info w-100vh">{t('autoListing.actions.bulkUpdate')}</button>
                     </div>
                 </div>
             </div>
@@ -258,18 +261,18 @@ const PublishProductTab: FC<Props> = (isCollapsed) => {
                 <table className="table table-bordered">
                     <thead className="table-light">
                         <tr>
-                            <th className='fw-medium'>Retail price</th>
-                            <th className='fw-medium'>List price</th>
-                            <th className='fw-medium'>Số lượng</th>
-                            <th className='fw-medium'>Seller SKU</th>
-                            <th className='fw-medium'>Action</th>
+                            <th className='fw-medium'>{t('autoListing.table.retailPrice')}</th>
+                            <th className='fw-medium'>{t('autoListing.table.listPrice')}</th>
+                            <th className='fw-medium'>{t('autoListing.table.quantity')}</th>
+                            <th className='fw-medium'>{t('autoListing.table.sku')}</th>
+                            <th className='fw-medium'>{t('autoListing.table.action')}</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td colSpan={5} className="text-center py-4 text-muted">
                                 <i className="bi bi-inbox" style={{ fontSize: '2rem' }}></i>
-                                <div>No data</div>
+                                <div>{t('autoListing.table.noData')}</div>
                             </td>
                         </tr>
                     </tbody>
@@ -286,10 +289,10 @@ const PublishProductTab: FC<Props> = (isCollapsed) => {
                     zIndex: 10,
                 }}
             >
-                <button className="btn btn-primary">PUBLISH PRODUCT</button>
+                <button className="btn btn-primary">{t('autoListing.actions.publish')}</button>
                 <button className="btn btn-outline-secondary">
                     <i className='bi bi-save me-1'></i>
-                    Save as draft</button>
+                    {t('autoListing.actions.saveDraft')}</button>
             </div>
         </div>
     )

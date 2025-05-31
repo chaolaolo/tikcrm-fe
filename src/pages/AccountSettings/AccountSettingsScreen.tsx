@@ -5,15 +5,17 @@ import MarketingTab from './Tabs/MarketingTab';
 import ChangePasswordTab from './Tabs/ChangePasswordTab';
 import NotificationTab from './Tabs/NotificationTab';
 import AccountSettingsTab from './Tabs/AccountSettingsTab';
+import { useTranslation } from 'react-i18next';
 
 const AccountSettingsScreen: React.FC = () => {
   const [activeTab, setActiveTab] = useState(1);
-
+  const { t } = useTranslation();
   const tabs = [
-    { id: 1, label: 'Cài đặt tài khoản' },
-    { id: 2, label: 'Cài đặt thông báo' },
-    { id: 3, label: 'Đổi mật khẩu' },
-    { id: 4, label: 'Tiếp thị' },
+    { id: 1, label: t('accountSettings.tabs.settings') },
+    { id: 2, label: t('accountSettings.tabs.notifications') },
+    { id: 3, label: t('accountSettings.tabs.changePassword') },
+    { id: 4, label: t('accountSettings.tabs.referral') },
+
   ];
 
   const renderContent = () => {
@@ -34,7 +36,7 @@ const AccountSettingsScreen: React.FC = () => {
   return (
     <div className="container-fluid bg-light min-vh-100 p-2">
       <div className="bg-white rounded shadow-sm p-3">
-        <h5 className="mb-4 text-start">Quản lý tài khoản</h5>
+        <h5 className="mb-4 text-start">{t('accountSettings.title')}</h5>
         <hr />
         {/* Tabs */}
         <ul className="nav nav-tabs mb-2">

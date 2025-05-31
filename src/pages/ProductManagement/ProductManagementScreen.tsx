@@ -2,17 +2,19 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import DateRangePicker from '../../components/ui/DatePicker/DateRangePicker';
+import { useTranslation } from 'react-i18next';
 
 const ProductManagementScreen: React.FC = () => {
   const [activeTab, setActiveTab] = useState(1);
+  const { t } = useTranslation();
 
   const tabs = [
-    { id: 1, label: 'LIVE', icon: 'bi-check-circle' },
-    { id: 2, label: 'REVIEWING', icon: 'bi-hourglass' },
-    { id: 3, label: 'FAILED', icon: 'bi-x-circle' },
-    { id: 4, label: 'FROZEN', icon: 'bi-slash-circle' },
-    { id: 5, label: 'DELETED', icon: 'bi-trash' },
-    { id: 6, label: 'ALL', icon: 'bi-list' },
+    { id: 1, label: t('products.statuses.live'), icon: 'bi-check-circle' },
+    { id: 2, label: t('products.statuses.reviewing'), icon: 'bi-hourglass' },
+    { id: 3, label: t('products.statuses.failed'), icon: 'bi-x-circle' },
+    { id: 4, label: t('products.statuses.frozen'), icon: 'bi-slash-circle' },
+    { id: 5, label: t('products.statuses.deleted'), icon: 'bi-trash' },
+    { id: 6, label: t('products.statuses.all'), icon: 'bi-list' },
   ];
 
   const handleDateChange = ([start, end]: [Date | null, Date | null]) => {
@@ -24,16 +26,16 @@ const ProductManagementScreen: React.FC = () => {
       <div className="bg-white rounded shadow-sm p-3 text-start">
         <div className="row g-2 mb-3 align-items-center">
           <div className="col-md-6">
-            <h5 className="mb-4">Product List</h5>
+            <h5 className="mb-4">{t('products.title')}</h5>
           </div>
           <div className="col-md-3 text-end">
             <button className="btn btn-outline-info w-100">
-              <i className="bi bi-cloud-arrow-down me-1"></i>Sync products
+              <i className="bi bi-cloud-arrow-down me-1"></i>{t('products.sync')}
             </button>
           </div>
           <div className="col-md-3 text-end">
             <button className="btn btn-outline-secondary w-100">
-              <i className="bi bi-arrow-clockwise me-1"></i>Refresh
+              <i className="bi bi-arrow-clockwise me-1"></i>{t('products.refresh')}
             </button>
           </div>
         </div>
@@ -51,13 +53,13 @@ const ProductManagementScreen: React.FC = () => {
                 placeholder="Search by: Product Name, ID, Profile, Template Name"
               />
               <button className="btn btn-primary rounded-end px-4" type="button">
-                Search
+                {t('products.search')}
               </button>
             </div>
           </div>
           <div className="col-md-3">
             <button className="btn btn-outline-primary w-100">
-              <i className="bi bi-files me-1"></i>Clone Products
+              <i className="bi bi-files me-1"></i>{t('products.clone')}
             </button>
           </div>
         </div>
@@ -66,17 +68,17 @@ const ProductManagementScreen: React.FC = () => {
         <div className="d-flex gap-2 mb-3">
           <div className="col-md-3">
             <select className="form-select">
-              <option>All Stores</option>
+              <option>{t('products.filters.allStores')}</option>
             </select>
           </div>
           <div className="col-md-3">
             <select className="form-select">
-              <option>All Staff</option>
+              <option>{t('products.filters.allStaff')}</option>
             </select>
           </div>
           <div className="col-md-3">
             <select className="form-select">
-              <option>Filter by Listing Quality</option>
+              <option>{t('products.filters.listingQuality')}</option>
             </select>
           </div>
           <div col-md-3>
@@ -109,19 +111,19 @@ const ProductManagementScreen: React.FC = () => {
             <thead className="table-light">
               <tr>
                 <th><input type="checkbox" /></th>
-                <th className="fw-medium text-center align-middle" style={{ width: '100px' }}>Product Image</th>
-                <th className="fw-medium text-center align-middle" style={{ width: '100px' }}>Product Name</th>
-                <th className="fw-medium text-center align-middle" style={{ width: '100px' }}>Retail Price</th>
-                <th className="fw-medium text-center align-middle" style={{ width: '100px' }}>Listing Quality <i className="bi bi-question-circle" title="Listing Quality Info"></i></th>
-                <th className="fw-medium text-center align-middle" style={{ width: '100px' }}>Status <i className="bi bi-question-circle" title="Status Info"></i></th>
-                <th className="fw-medium text-center align-middle" style={{ width: '100px' }}>Creation Date</th>
+                <th className="fw-medium text-center align-middle" style={{ width: '100px' }}>{t('products.table.image')}</th>
+                <th className="fw-medium text-center align-middle" style={{ width: '100px' }}>{t('products.table.name')}</th>
+                <th className="fw-medium text-center align-middle" style={{ width: '100px' }}>{t('products.table.retailPrice')}</th>
+                <th className="fw-medium text-center align-middle" style={{ width: '100px' }}>{t('products.table.listingQuality')}<i className="bi bi-question-circle" title="Listing Quality Info"></i></th>
+                <th className="fw-medium text-center align-middle" style={{ width: '100px' }}>{t('products.table.status')}<i className="bi bi-question-circle" title="Status Info"></i></th>
+                <th className="fw-medium text-center align-middle" style={{ width: '100px' }}>{t('products.table.creationDate')}</th>
                 <th className="fw-medium text-center align-middle" style={{
                   width: '120px',
                   position: 'sticky',
                   right: 0,
                   zIndex: 0,
                   boxShadow: '-6px 0 6px -2px rgba(0,0,0,0.15)',
-                }} >Actions</th>
+                }} >{t('products.table.actions')}</th>
               </tr>
             </thead>
             <tbody>
@@ -129,7 +131,7 @@ const ProductManagementScreen: React.FC = () => {
                 <td colSpan={8} className="py-5 text-muted">
                   <div className="d-flex flex-column align-items-center">
                     <i className="bi bi-inbox" style={{ fontSize: '3rem' }}></i>
-                    <div>No data</div>
+                    <div>{t('products.table.noData')}</div>
                   </div>
                 </td>
                 {/* <td><input type="checkbox" /></td>

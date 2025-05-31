@@ -5,6 +5,7 @@ import PublishProductTab from './Tabs/PublishProductTab';
 import DraftTab from './Tabs/DraftTab';
 import ScheduledListTab from './Tabs/ScheduledListTab';
 import ProductPublishingProgressTab from './Tabs/ProductPublishingProgressTab';
+import { useTranslation } from 'react-i18next';
 
 interface AutoListingScreenProps {
   isCollapsed: boolean;
@@ -12,12 +13,13 @@ interface AutoListingScreenProps {
 
 const AutoListingScreen: React.FC<AutoListingScreenProps> = ({ isCollapsed }) => {
   const [activeTab, setActiveTab] = useState(1);
+  const {t} = useTranslation();
 
   const tabs = [
-    { id: 1, label: 'Publish Product' },
-    { id: 2, label: 'Draft' },
-    { id: 3, label: 'Scheduled List' },
-    { id: 4, label: 'Product Publishing Progress' },
+    { id: 1, label: t('autoListing.tabs.publish') },
+    { id: 2, label: t('autoListing.tabs.draft') },
+    { id: 3, label: t('autoListing.tabs.scheduled') },
+    { id: 4, label: t('autoListing.tabs.progress') },
   ];
 
   const renderContent = () => {
@@ -39,7 +41,7 @@ const AutoListingScreen: React.FC<AutoListingScreenProps> = ({ isCollapsed }) =>
   return (
     <div className="container-fluid bg-light min-vh-100 p-2">
       <div className="bg-white rounded shadow-sm p-3">
-        <h5 className="mb-2 text-start">Schedule Products</h5>
+        <h5 className="mb-2 text-start">{t('autoListing.title')}</h5>
         {/* Divider */}
         <hr />
         {/* Tabs */}

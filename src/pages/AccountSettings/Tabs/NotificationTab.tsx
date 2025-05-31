@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import { useTranslation } from 'react-i18next';
 
 const NotificationTab = () => {
   const [enabled, setEnabled] = useState(false);
+  const { t } = useTranslation();
 
   return (
     <div className="container mt-3">

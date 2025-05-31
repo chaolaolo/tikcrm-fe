@@ -5,11 +5,12 @@ import Divider from '../../../core/Divider/Divider';
 import { Button } from 'antd';
 import './login.css';
 import { useAuth } from '../../../store/AuthContext';
+import { useTranslation } from 'react-i18next';
 const LoginPage: React.FC = () => {
   const navigate = useNavigate();
   const { isLoggedIn } = useAuth();
   const { login } = useAuth();
-
+  const { t } = useTranslation();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault(); // Ngăn form submit mặc định
@@ -31,6 +32,7 @@ const LoginPage: React.FC = () => {
       <div className="d-flex justify-content-center align-items-center min-vh-100 p-3">
         <div className="w-100" style={{ maxWidth: '600px', }}>
           <p className="text-center mb-8 fs-3 fw-normal">Login to TikCRM Management</p>
+          <h1>{t('welcome')}</h1>
           <div className="card p-8 " style={{
             marginTop: '40px',
             marginLeft: '20px',

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './DateRangePicker.css';
+import { useTranslation } from 'react-i18next';
 
 interface DateRangePickerProps {
   onChange?: (dates: [Date | null, Date | null]) => void;
@@ -11,7 +12,8 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({ onChange }) => {
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
   const [hovering, setHovering] = useState(false);
-
+  const { t } = useTranslation();
+  
   const handleChange = (dates: [Date | null, Date | null]) => {
     const [start, end] = dates;
     setStartDate(start);
@@ -34,7 +36,7 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({ onChange }) => {
         value={value}
         ref={ref}
         readOnly
-        placeholder="Start date → End date"
+        placeholder={t('orders.filters.dateRange')}
       />
       <span
         className="position-absolute end-0 top-50 translate-middle-y pe-1"

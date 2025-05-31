@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Form, Button, Tooltip, OverlayTrigger } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
 
 const generateRandomApiKey = () => {
   const charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -17,6 +18,7 @@ const AccountSettingsTab = () => {
   const [language, setLanguage] = useState('en');
   const [copied, setCopied] = useState(false);
   const [apiKey, setApiKey] = useState('');
+  const { t, i18n } = useTranslation();
 
   const handleCopy = () => {
     navigator.clipboard.writeText(apiKey);
@@ -40,32 +42,32 @@ const AccountSettingsTab = () => {
     <div className="mt-2 text-start col-md-6 justify-content-left">
       {/* Email */}
       <div className="mb-3">
-        <label className="form-label">Email</label>
+        <label className="form-label">{t('accountSettings.form.email')}</label>
         <input type="email" className="form-control" value="tranchaufw04@gmail.com" disabled />
       </div>
 
       {/* First Name */}
       <div className="mb-3">
         <label className="form-label">
-          <span className="text-danger">*</span> First Name
+          <span className="text-danger">*</span> {t('accountSettings.form.firstName')}
         </label>
         <input
           type="text"
           className="form-control"
           value={firstName}
-          placeholder='Enter your first name'
+          placeholder={t('accountSettings.form.firstNamePlaceholder')}
           onChange={(e) => setFirstName(e.target.value)}
         />
       </div>
 
       {/* Last Name */}
       <div className="mb-3">
-        <label className="form-label">Last Name</label>
+        <label className="form-label">{t('accountSettings.form.lastName')}</label>
         <input
           type="text"
           className="form-control"
           value={lastName}
-          placeholder='Enter your last name'
+          placeholder={t('accountSettings.form.lastNamePlaceholder')}
           onChange={(e) => setLastName(e.target.value)}
         />
       </div>
@@ -73,7 +75,7 @@ const AccountSettingsTab = () => {
       {/* SKU Prefix */}
       <div className="mb-3">
         <label className="form-label">
-          <span className="text-danger">*</span> SKU Prefix
+          <span className="text-danger">*</span> {t('accountSettings.form.skuPrefix')}
         </label>
         <input
           type="text"
@@ -85,7 +87,7 @@ const AccountSettingsTab = () => {
 
       {/* API Key + Copy */}
       <div className="mb-1">
-        <label className="form-label">API Key</label>
+        <label className="form-label">{t('accountSettings.form.apiKey')}</label>
         <div className="input-group">
           <input type="text" className="form-control" value={apiKey} disabled />
           {/* <button className="btn btn-outline-secondary" type="button" onClick={handleCopy}>
@@ -116,16 +118,16 @@ const AccountSettingsTab = () => {
           className="text-primary fw-bold"
           style={{ fontSize: '13px', cursor: 'pointer' }}
           onClick={handleGenerateNewKey}
-        >Tạo mới api key</small>
+        >{t('accountSettings.form.newApiKey')}</small>
       </div>
 
       {/* KikiLogin API Key */}
       <div className="mb-3">
-        <label className="form-label">KikiLogin API Key</label>
+        <label className="form-label">{t('accountSettings.form.kikiApiKey')}</label>
         <input
           type="text"
           className="form-control"
-          placeholder="Nhập API Key KikiLogin"
+          placeholder={t('accountSettings.form.kikiApiKeyPlaceholder')}
           value={kikiApiKey}
           onChange={(e) => setKikiApiKey(e.target.value)}
         />
@@ -133,11 +135,15 @@ const AccountSettingsTab = () => {
 
       {/* Ngôn ngữ */}
       <div className="mb-4">
-        <label className="form-label">Ngôn ngữ</label>
+        <label className="form-label">{t('accountSettings.form.language')}</label>
         <select
           className="form-select"
-          value={language}
-          onChange={(e) => setLanguage(e.target.value)}
+          value={i18n.language}
+          onChange={(e) => {
+            const selectedLanguage = e.target.value;
+            setLanguage(selectedLanguage)
+            i18n.changeLanguage(selectedLanguage);
+          }}
         >
           <option value="en">English</option>
           <option value="vi">Vietnamese</option>
@@ -145,69 +151,9 @@ const AccountSettingsTab = () => {
       </div>
 
       {/* Button */}
-      <button className="btn btn-primary">Cập nhật thông tin</button>
+      <button className="btn btn-primary">{t('accountSettings.form.update')}</button>
     </div>
   );
 }
 
 export default AccountSettingsTab
-
-
-// import React from 'react'
-// import { Form, Button } from 'react-bootstrap';
-
-// const AccountSettingsTab = () => {
-//   return (
-//     <div>
-//         <Form>
-//           <Form.Group className="mb-3">
-//             <Form.Label>Email</Form.Label>
-//             <Form.Control type="email" value="tranchaufw04@gmail.com" disabled />
-//           </Form.Group>
-
-//           <Form.Group className="mb-3">
-//             <Form.Label><span className="text-danger">*</span> First Name</Form.Label>
-//             <Form.Control type="text" defaultValue="chau" />
-//           </Form.Group>
-
-//           <Form.Group className="mb-3">
-//             <Form.Label>Last Name</Form.Label>
-//             <Form.Control type="text" defaultValue="tran" />
-//           </Form.Group>
-
-//           <Form.Group className="mb-3">
-//             <Form.Label><span className="text-danger">*</span> SKU Prefix</Form.Label>
-//             <Form.Control type="text" value="TRANCHAUFW04_ZMTW" disabled />
-//           </Form.Group>
-
-//           <Form.Group className="mb-3">
-//             <Form.Label>API Key</Form.Label>
-//             <div className="input-group">
-//               <Form.Control type="text" />
-//               <span className="input-group-text">
-//                 <i className="bi bi-clipboard"></i>
-//               </span>
-//             </div>
-//             <div className="text-primary small mt-1">Tạo mới api key</div>
-//           </Form.Group>
-
-//           <Form.Group className="mb-3">
-//             <Form.Label>KikiLogin API Key</Form.Label>
-//             <Form.Control type="text" placeholder="Nhập API Key KikiLogin" />
-//           </Form.Group>
-
-//           <Form.Group className="mb-4">
-//             <Form.Label>Ngôn ngữ</Form.Label>
-//             <Form.Select defaultValue="English">
-//               <option>English</option>
-//               <option>Vietnamese</option>
-//             </Form.Select>
-//           </Form.Group>
-
-//           <Button variant="primary">Cập nhật thông tin</Button>
-//         </Form>
-//     </div>
-//   )
-// }
-
-// export default AccountSettingsTab

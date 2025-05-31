@@ -1,0 +1,287 @@
+{
+    "welcome": "Welcome to our app",
+    "logout": "Log out",
+    "language": "Language",
+    "update_info": "Update Information",
+    "auth": {
+        "loginTitle": "Login to TikCRM Management",
+        "welcome": "Welcome to our app",
+        "email": "Email",
+        "password": "Password",
+        "enterPassword": "Enter password",
+        "login": "Login",
+        "forgotPassword": "Forgot password",
+        "or": "OR",
+        "noAccount": "Don't have an account?",
+        "signUp": "Sign Up",
+        "haveAccount": "Already have an account?",
+        "registerTitle": "Register a TikCRM account",
+        "fullName": "Full Name",
+        "telegram": "Telegram",
+        "telegramPlaceholder": "Your Telegram username (Ex: @tikcrm, @tranphuc, @nguyenhai, etc)",
+        "referralCode": "Referral code (Optional)",
+        "enterReferral": "Enter Referral code (Optional)",
+        "register": "Sign Up",
+        "forgotTitle": "Forgot password",
+        "nextStep": "Next step",
+        "backToLogin": "Back to Login"
+    },
+    "sidebar": {
+        "products": "Products",
+        "orderManagement": "Order Management",
+        "productManagement": "Product Management",
+        "nicheManagement": "Niche Management",
+        "tools": "Tools",
+        "autoListing": "Auto Listing",
+        "promotions": "Promotions",
+        "taskManagement": "Task management",
+        "fulfill": "Fulfill",
+        "fulfillManagement": "Fulfill Management",
+        "finance": "Finance Management",
+        "bankManagement": "Bank Management",
+        "fundManagement": "Fund Management",
+        "fraudAlert": "Fraud Alert",
+        "accounts": "Accounts",
+        "paymentCenter": "Payment Center",
+        "connectShop": "Connect Shop",
+        "staffManagement": "Staff Management",
+        "accountSettings": "Account Settings",
+        "templateSettings": "Template Settings",
+        "yourPlan": "Your Plan",
+        "freeLimit": "Free {{used}}/{{total}}"
+    },
+    "orders": {
+        "title": "Orders",
+        "tabs": {
+            "withoutDesign": "Orders Without Design",
+            "withDesign": "Orders With Design (Not Yet Fulfilled)",
+            "overdue": "Overdue Orders",
+            "suspicious": "Suspicious Orders",
+            "returned": "Returned Orders"
+        },
+        "actions": {
+            "autoFulfill": "Auto Fulfill",
+            "export": "Export order",
+            "sync": "Sync order",
+            "refresh": "Refresh"
+        },
+        "filters": {
+            "orderId": "Search order id",
+            "productId": "Search product id",
+            "productName": "Search product name",
+            "allStores": "All Stores",
+            "allStaff": "All Staff",
+            "allServices": "All Services",
+            "allStatuses": "All Statuses",
+            "dateRange": "Start date → End date"
+        },
+        "table": {
+            "id": "ID",
+            "account": "Account / Seller",
+            "order": "Order",
+            "info": "Order info",
+            "price": "Price",
+            "actions": "Actions",
+            "noData": "No data"
+        }
+    },
+    "products": {
+        "title": "Product List",
+        "searchPlaceholder": "Search by: Product Name, ID, Profile, Template Name",
+        "search": "Search",
+        "clone": "Clone Products",
+        "sync": "Sync products",
+        "refresh": "Refresh",
+        "filters": {
+            "allStores": "All Stores",
+            "allStaff": "All Staff",
+            "listingQuality": "Filter by Listing Quality",
+            "dateRange": "Start date → End date"
+        },
+        "statuses": {
+            "live": "LIVE",
+            "reviewing": "REVIEWING",
+            "failed": "FAILED",
+            "frozen": "FROZEN",
+            "deleted": "DELETED",
+            "all": "ALL"
+        },
+        "table": {
+            "image": "Product Image",
+            "name": "Product Name",
+            "retailPrice": "Retail Price",
+            "listingQuality": "Listing Quality",
+            "status": "Status",
+            "creationDate": "Creation Date",
+            "actions": "Actions",
+            "noData": "No data"
+        }
+    },
+    "niche": {
+        "title": "Niche-Sub Niche Management",
+        "add": "Add Niche",
+        "refresh": "Refresh",
+        "table": {
+            "nicheName": "Niche Name",
+            "parentNiche": "Parent Niche",
+            "creationDate": "Creation Date",
+            "actions": "Actions",
+            "noData": "No data"
+        }
+    },
+    "autoListing": {
+        "title": "Schedule Products",
+        "tabs": {
+            "publish": "Publish Product",
+            "draft": "Draft",
+            "scheduled": "Scheduled List",
+            "progress": "Product Publishing Progress"
+        },
+        "market": {
+            "label": "Selling Market",
+            "options": {
+                "us": "US",
+                "nonUs": "NON-US (UK, JP, DE, ES, FR, IE, IT...)"
+            },
+            "note": "Please select the selling market before publishing"
+        },
+        "filter": {
+            "niche": "Filter Shop By Niche",
+            "store": "All Stores",
+            "staff": "All Staff",
+            "status": "All Statuses",
+            "dateRange": "Start date → End date"
+        },
+        "schedule": {
+            "label": "Schedule product posting",
+            "placeholder": "dd/mm/yyyy",
+            "timezone": "Timezone: America/Los_Angeles",
+            "note": "Skip if you want to publish the product immediately!!!"
+        },
+        "shop": {
+            "label": "Shop",
+            "placeholder": "Please select shop"
+        },
+        "images": {
+            "label": "Product Images",
+            "tooltip": "Click or drag file to this area to upload"
+        },
+        "titleField": {
+            "label": "Title",
+            "placeholder": "Enter product title…",
+            "note": "Recommended length: 40 characters or more. The category will be automatically identified by the product name."
+        },
+        "templateGroup": "Select Template Group",
+        "categoryTemplate": "Select Category Template",
+        "brand": "Brand",
+        "category": "Category",
+        "sizeChart": "Size Chart",
+        "video": "Video",
+        "description": {
+            "label": "Description",
+            "template1": "Select an available description template",
+            "template2": "Select description 2",
+            "manual": "MANUALLY ENTER DESCRIPTION"
+        },
+        "dimension": {
+            "weight": "Package Weight",
+            "height": "Height",
+            "width": "Width",
+            "length": "Length",
+            "unit": "Unit",
+            "unitPlaceholder": "Enter unit"
+        },
+        "priceTemplate": "Select an available Size, Price template",
+        "actions": {
+            "addVariant": "Add Variant",
+            "createSku": "Create SKU",
+            "bulkUpdate": "Bulk Update",
+            "publish": "Publish Product",
+            "saveDraft": "Save as draft",
+            "refresh": "Refresh",
+            "search": "Search"
+        },
+        "table": {
+            "retailPrice": "Retail Price",
+            "listPrice": "List Price",
+            "quantity": "Quantity",
+            "sku": "Seller SKU",
+            "action": "Action",
+            "noData": "No data",
+            "preview": "Preview Image",
+            "productInfo": "Product Information",
+            "name": "Product Name/Description",
+            "status": "Status",
+            "scheduleTime": "Schedule time (TZ: America/Los_Angeles)",
+            "creationDate": "Creation Date",
+            "amount": "Amount",
+            "actions": "Actions"
+        }
+    },
+    "taskManagement": {
+        "title": "Task management",
+        "actions": {
+            "create": "Create New",
+            "refresh": "Refresh"
+        },
+        "table": {
+            "name": "Name",
+            "status": "Status",
+            "schedule": "Schedule",
+            "lastRun": "Last Run",
+            "nextRun": "Next Run",
+            "task": "Task",
+            "creationDate": "Creation Date",
+            "actions": "Actions",
+            "noData": "No data"
+        }
+    },
+    "accountSettings": {
+        "title": "Account Management",
+        "tabs": {
+            "settings": "Account Settings",
+            "notifications": "Notification Settings",
+            "changePassword": "Change Password",
+            "referral": "Referral"
+        },
+        "form": {
+            "email": "Email",
+            "firstName": "First Name",
+            "firstNamePlaceholder": "Enter your first name",
+            "lastName": "Last Name",
+            "lastNamePlaceholder": "Enter your last name",
+            "skuPrefix": "SKU Prefix",
+            "apiKey": "API Key",
+            "newApiKey": "Generate new API key",
+            "kikiApiKey": "KikiLogin API Key",
+            "kikiApiKeyPlaceholder": "Enter KikiLogin API Key",
+            "language": "Language",
+            "update": "Update Information"
+        },
+        "password": {
+            "old": "Old Password",
+            "new": "New Password",
+            "confirm": "Confirm New Password",
+            "placeholderOld": "Enter old password",
+            "placeholderNew": "Enter new password",
+            "placeholderConfirm": "Re-enter new password",
+            "submit": "Change Password"
+        },
+        "referral": {
+            "email": "Email",
+            "name": "Full Name",
+            "plan": "Plan",
+            "shopCount": "Shop Count",
+            "status": "Status",
+            "registerDate": "Register Date",
+            "noData": "No data",
+            "title": "Invite Friends",
+            "earned": "Earned",
+            "success": "Successful Invites",
+            "upgraded": "Upgraded Invites",
+            "referralCode": "Referral Code",
+            "copyLink": "Copy referral link",
+            "shareQr": "Share QR Code"
+        }
+    }
+}

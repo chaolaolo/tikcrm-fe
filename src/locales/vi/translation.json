@@ -1,0 +1,287 @@
+{
+    "welcome": "Chào mừng bạn đến với ứng dụng",
+    "logout": "Đăng xuất",
+    "language": "Ngôn ngữ",
+    "update_info": "Cập nhật thông tin",
+    "auth": {
+        "loginTitle": "Đăng nhập vào TikCRM",
+        "welcome": "Chào mừng bạn đến với ứng dụng",
+        "email": "Email",
+        "password": "Mật khẩu",
+        "enterPassword": "Nhập mật khẩu",
+        "login": "Đăng nhập",
+        "forgotPassword": "Quên mật khẩu",
+        "or": "HOẶC",
+        "noAccount": "Chưa có tài khoản?",
+        "signUp": "Đăng ký",
+        "haveAccount": "Đã có tài khoản?",
+        "registerTitle": "Đăng ký tài khoản TikCRM",
+        "fullName": "Họ và tên",
+        "telegram": "Telegram",
+        "telegramPlaceholder": "Tên người dùng Telegram của bạn (VD: @tikcrm, @tranphuc, @nguyenhai, ...)",
+        "referralCode": "Mã giới thiệu (Tùy chọn)",
+        "enterReferral": "Nhập mã giới thiệu (không bắt buộc)",
+        "register": "Đăng ký",
+        "forgotTitle": "Quên mật khẩu",
+        "nextStep": "Bước tiếp theo",
+        "backToLogin": "Quay lại đăng nhập"
+    },
+    "sidebar": {
+        "products": "Sản phẩm",
+        "orderManagement": "Quản lý đơn hàng",
+        "productManagement": "Quản lý sản phẩm",
+        "nicheManagement": "Quản lý ngách",
+        "tools": "Công cụ",
+        "autoListing": "Tự động đăng bán",
+        "promotions": "Khuyến mãi",
+        "taskManagement": "Quản lý tác vụ",
+        "fulfill": "Fulfill",
+        "fulfillManagement": "Quản lý fulfill",
+        "finance": "Quản lý tài chính",
+        "bankManagement": "Quản lý bank",
+        "fundManagement": "Quản lý tiền về",
+        "fraudAlert": "Cảnh báo gian lận",
+        "accounts": "Tài khoản",
+        "paymentCenter": "Trung tâm thanh toán",
+        "connectShop": "Kết nối Shop",
+        "staffManagement": "Quản lý nhân viên",
+        "accountSettings": "Cài đặt tài khoản",
+        "templateSettings": "Cài đặt Template",
+        "yourPlan": "Gói của bạn",
+        "freeLimit": "Miễn phí {{used}}/{{total}}"
+    },
+    "orders": {
+        "title": "Đơn hàng",
+        "tabs": {
+            "withoutDesign": "Đơn chưa có thiết kế",
+            "withDesign": "Đơn đã có thiết kế (chưa fulfill)",
+            "overdue": "Đơn quá hạn",
+            "suspicious": "Đơn đáng ngờ",
+            "returned": "Đơn hoàn trả"
+        },
+        "actions": {
+            "autoFulfill": "Tự động fulfill",
+            "export": "Xuất đơn hàng",
+            "sync": "Đồng bộ đơn",
+            "refresh": "Làm mới"
+        },
+        "filters": {
+            "orderId": "Tìm ID đơn hàng",
+            "productId": "Tìm ID sản phẩm",
+            "productName": "Tìm tên sản phẩm",
+            "allStores": "Tất cả cửa hàng",
+            "allStaff": "Tất cả nhân viên",
+            "allServices": "Tất cả dịch vụ",
+            "allStatuses": "Tất cả trạng thái",
+            "dateRange": "Từ ngày → Đến ngày"
+        },
+        "table": {
+            "id": "ID",
+            "account": "Tài khoản / Người bán",
+            "order": "Đơn hàng",
+            "info": "Thông tin đơn",
+            "price": "Giá",
+            "actions": "Thao tác",
+            "noData": "Không có dữ liệu"
+        }
+    },
+    "products": {
+        "title": "Danh sách sản phẩm",
+        "searchPlaceholder": "Tìm theo: Tên sản phẩm, ID, Hồ sơ, Tên Template",
+        "search": "Tìm kiếm",
+        "clone": "Nhân bản sản phẩm",
+        "sync": "Đồng bộ sản phẩm",
+        "refresh": "Làm mới",
+        "filters": {
+            "allStores": "Tất cả cửa hàng",
+            "allStaff": "Tất cả nhân viên",
+            "listingQuality": "Lọc theo chất lượng niêm yết",
+            "dateRange": "Từ ngày → Đến ngày"
+        },
+        "statuses": {
+            "live": "ĐANG BÁN",
+            "reviewing": "ĐANG XÉT DUYỆT",
+            "failed": "THẤT BẠI",
+            "frozen": "BỊ ĐÓNG BĂNG",
+            "deleted": "ĐÃ XÓA",
+            "all": "TẤT CẢ"
+        },
+        "table": {
+            "image": "Ảnh sản phẩm",
+            "name": "Tên sản phẩm",
+            "retailPrice": "Giá bán lẻ",
+            "listingQuality": "Chất lượng niêm yết",
+            "status": "Trạng thái",
+            "creationDate": "Ngày tạo",
+            "actions": "Thao tác",
+            "noData": "Không có dữ liệu"
+        }
+    },
+    "niche": {
+        "title": "Quản lý danh mục ngách",
+        "add": "Thêm danh mục",
+        "refresh": "Làm mới",
+        "table": {
+            "nicheName": "Tên danh mục",
+            "parentNiche": "Danh mục cha",
+            "creationDate": "Ngày tạo",
+            "actions": "Thao tác",
+            "noData": "Không có dữ liệu"
+        }
+    },
+    "autoListing": {
+        "title": "Lên lịch đăng sản phẩm",
+        "tabs": {
+            "publish": "Đăng sản phẩm",
+            "draft": "Bản nháp",
+            "scheduled": "Danh sách đã lên lịch",
+            "progress": "Tiến độ đăng sản phẩm"
+        },
+        "market": {
+            "label": "Thị trường bán hàng",
+            "options": {
+                "us": "US",
+                "nonUs": "NON-US (UK, JP, DE, ES, FR, IE, IT...)"
+            },
+            "note": "Vui lòng chọn thị trường bán hàng trước khi đăng sản phẩm"
+        },
+        "filter": {
+            "niche": "Lọc cửa hàng theo ngách",
+            "store": "Tất cả cửa hàng",
+            "staff": "Tất cả nhân viên",
+            "status": "Tất cả trạng thái",
+            "dateRange": "Từ ngày → Đến ngày"
+        },
+        "schedule": {
+            "label": "Lên lịch đăng sản phẩm",
+            "placeholder": "dd/mm/yyyy",
+            "timezone": "Múi giờ: America/Los_Angeles",
+            "note": "Bỏ qua nếu bạn muốn đăng ngay lập tức!!!"
+        },
+        "shop": {
+            "label": "Cửa hàng",
+            "placeholder": "Vui lòng chọn shop"
+        },
+        "images": {
+            "label": "Ảnh sản phẩm",
+            "tooltip": "Nhấn hoặc kéo tệp vào đây để tải lên"
+        },
+        "titleField": {
+            "label": "Tiêu đề",
+            "placeholder": "Nhập tên sản phẩm…",
+            "note": "Độ dài đề xuất: từ 40 ký tự trở lên. Danh mục sẽ được nhận diện tự động."
+        },
+        "templateGroup": "Chọn nhóm mẫu sẵn có",
+        "categoryTemplate": "Chọn mẫu danh mục",
+        "brand": "Thương hiệu",
+        "category": "Danh mục",
+        "sizeChart": "Bảng kích thước",
+        "video": "Video",
+        "description": {
+            "label": "Mô tả",
+            "template1": "Chọn mẫu mô tả có sẵn",
+            "template2": "Chọn mẫu mô tả 2",
+            "manual": "NHẬP TAY MẪU"
+        },
+        "dimension": {
+            "weight": "Khối lượng",
+            "height": "Chiều cao",
+            "width": "Chiều rộng",
+            "length": "Chiều dài",
+            "unit": "Đơn vị",
+            "unitPlaceholder": "Nhập đơn vị"
+        },
+        "priceTemplate": "Chọn mẫu kích thước, giá có sẵn",
+        "actions": {
+            "addVariant": "Thêm biến thể",
+            "createSku": "Tạo SKU",
+            "bulkUpdate": "Cập nhật hàng loạt",
+            "publish": "Đăng sản phẩm",
+            "saveDraft": "Lưu bản nháp",
+            "refresh": "Làm mới",
+            "search": "Tìm kiếm"
+        },
+        "table": {
+            "retailPrice": "Giá bán lẻ",
+            "listPrice": "Giá niêm yết",
+            "quantity": "Số lượng",
+            "sku": "Mã SKU",
+            "action": "Thao tác",
+            "noData": "Không có dữ liệu",
+            "preview": "Ảnh xem trước",
+            "productInfo": "Thông tin sản phẩm",
+            "name": "Tên/Mô tả sản phẩm",
+            "status": "Trạng thái",
+            "scheduleTime": "Thời gian đã lên lịch (Múi giờ: America/Los_Angeles)",
+            "creationDate": "Ngày tạo",
+            "amount": "Giá trị",
+            "actions": "Thao tác"
+        }
+    },
+    "taskManagement": {
+        "title": "Quản lý tác vụ",
+        "actions": {
+            "create": "Tạo mới",
+            "refresh": "Làm mới"
+        },
+        "table": {
+            "name": "Tên",
+            "status": "Trạng thái",
+            "schedule": "Lịch chạy",
+            "lastRun": "Lần chạy gần nhất",
+            "nextRun": "Lần chạy tiếp theo",
+            "task": "Tác vụ",
+            "creationDate": "Ngày tạo",
+            "actions": "Thao tác",
+            "noData": "Không có dữ liệu"
+        }
+    },
+    "accountSettings": {
+        "title": "Quản lý tài khoản",
+        "tabs": {
+            "settings": "Cài đặt tài khoản",
+            "notifications": "Cài đặt thông báo",
+            "changePassword": "Đổi mật khẩu",
+            "referral": "Tiếp thị"
+        },
+        "form": {
+            "email": "Email",
+            "firstName": "Họ",
+            "firstNamePlaceholder": "Nhập họ của bạn",
+            "lastName": "Tên",
+            "lastNamePlaceholder": "Nhập tên của bạn",
+            "skuPrefix": "Mã SKU Prefix",
+            "apiKey": "API Key",
+            "newApiKey": "Tạo mới API key",
+            "kikiApiKey": "API Key KikiLogin",
+            "kikiApiKeyPlaceholder": "Nhập API Key KikiLogin",
+            "language": "Ngôn ngữ",
+            "update": "Cập nhật thông tin"
+        },
+        "password": {
+            "old": "Mật khẩu cũ",
+            "new": "Mật khẩu mới",
+            "confirm": "Nhập lại mật khẩu mới",
+            "placeholderOld": "Nhập mật khẩu cũ",
+            "placeholderNew": "Nhập mật khẩu mới",
+            "placeholderConfirm": "Nhập lại mật khẩu mới",
+            "submit": "Đổi mật khẩu"
+        },
+        "referral": {
+            "email": "Email",
+            "name": "Họ và tên",
+            "plan": "Gói cước",
+            "shopCount": "Số shop",
+            "status": "Trạng thái",
+            "registerDate": "Ngày đăng ký",
+            "noData": "Không có dữ liệu",
+            "title": "Mời bạn bè",
+            "earned": "Kiếm được",
+            "success": "Mời thành công",
+            "upgraded": "Người được mời nâng cấp gói",
+            "referralCode": "Mã giới thiệu",
+            "copyLink": "Sao chép link tiếp thị",
+            "shareQr": "Chia sẻ QR Code"
+        }
+    }
+}

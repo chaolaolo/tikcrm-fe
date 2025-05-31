@@ -20,6 +20,7 @@ import WarningSpaceReleaseScreen from '../WarningSpaceRelease/WarningSpaceReleas
 import { Link } from 'react-router-dom';
 import './Layout.css';
 import telegramIcon from '../../assets/telegramlogo.png';
+import { useTranslation } from 'react-i18next';
 
 
 interface LayoutProps {
@@ -29,6 +30,8 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
     const [isCollapsed, setIsCollapsed] = useState(false);
     const [activeScreen, setActiveScreen] = useState('order-management');
+    const { t } = useTranslation();
+
 
     const toggleSidebar = () => {
         setIsCollapsed(!isCollapsed);
@@ -114,7 +117,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 <div className="py-3 flex-grow-1">
                     {/* Products Section */}
                     <div className="px-3 mb-2 text-start">
-                        {!isCollapsed && <p className="text-white-50 fw-bold mb-2">Products</p>}
+                        {!isCollapsed && <p className="text-white-50 fw-bold mb-2">{t('sidebar.products')}</p>}
                     </div>
 
                     <div className="ms-4">
@@ -134,7 +137,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                                     display: 'inline-block',
                                     fontFamily: 'Arial, sans-serif',
                                 }}
-                            >Order Management</span>}
+                            >{t('sidebar.orderManagement')}</span>}
                         </a>
                         <a
                             href="#"
@@ -152,7 +155,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                                     display: 'inline-block',
                                     fontFamily: 'Arial, sans-serif',
                                 }}
-                            >Product Management</span>}
+                            >{t('sidebar.productManagement')}</span>}
                         </a>
                         <a
                             href="#"
@@ -170,13 +173,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                                     display: 'inline-block',
                                     fontFamily: 'Arial, sans-serif',
                                 }}
-                            >Niche Management</span>}
+                            >{t('sidebar.nicheManagement')}</span>}
                         </a>
                     </div>
 
                     {/* Tools Section */}
                     <div className="px-3 mb-2 mt-4 text-start">
-                        {!isCollapsed && <p className="text-white-50 fw-bold mb-2">Tools</p>}
+                        {!isCollapsed && <p className="text-white-50 fw-bold mb-2">{t('sidebar.tools')}</p>}
                     </div>
 
                     <div className="ms-4">
@@ -196,7 +199,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                                     display: 'inline-block',
                                     fontFamily: 'Arial, sans-serif',
                                 }}
-                            >Auto Listing</span>}
+                            >{t('sidebar.autoListing')}</span>}
                         </a>
                         <a
                             href="#"
@@ -214,7 +217,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                                     display: 'inline-block',
                                     fontFamily: 'Arial, sans-serif',
                                 }}
-                            >Promotions</span>}
+                            >{t('sidebar.promotions')}</span>}
                         </a>
                         <a
                             href="#"
@@ -232,13 +235,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                                     display: 'inline-block',
                                     fontFamily: 'Arial, sans-serif',
                                 }}
-                            >Task management</span>}
+                            >{t('sidebar.taskManagement')}</span>}
                         </a>
                     </div>
 
                     {/* Fulfill Section */}
                     <div className="px-3 mb-2 mt-4 text-start">
-                        {!isCollapsed && <p className="text-white-50 fw-bold mb-2">Fulfill</p>}
+                        {!isCollapsed && <p className="text-white-50 fw-bold mb-2">{t('sidebar.fullfill')}</p>}
                     </div>
 
                     <div className="ms-4">
@@ -258,13 +261,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                                     display: 'inline-block',
                                     fontFamily: 'Arial, sans-serif',
                                 }}
-                            >Quản lý fulfill</span>}
+                            >{t('sidebar.fulfillManagement')}</span>}
                         </a>
                     </div>
 
                     {/* Quản lý tài chính Section */}
                     <div className="px-3 mb-2 mt-4 text-start">
-                        {!isCollapsed && <p className="text-white-50 fw-bold mb-2">Quản lý tài chính</p>}
+                        {!isCollapsed && <p className="text-white-50 fw-bold mb-2">{t('sidebar.finance')}</p>}
                     </div>
 
                     <div className="ms-4">
@@ -284,7 +287,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                                     display: 'inline-block',
                                     fontFamily: 'Arial, sans-serif',
                                 }}
-                            >Quản lý bank</span>}
+                            >{t('sidebar.bankManagement')}</span>}
                         </a>
                         <a
                             href="#"
@@ -302,7 +305,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                                     display: 'inline-block',
                                     fontFamily: 'Arial, sans-serif',
                                 }}
-                            >Quản lý tiền về</span>}
+                            >{t('sidebar.fundManagement')}</span>}
                         </a>
                         <a
                             href="#"
@@ -320,13 +323,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                                     display: 'inline-block',
                                     fontFamily: 'Arial, sans-serif',
                                 }}
-                            >Cảnh báo gian lận</span>}
+                            >{t('sidebar.fraudAlert')}</span>}
                         </a>
                     </div>
 
                     {/* Accounts Section */}
                     <div className="px-3 mb-2 mt-4 text-start">
-                        {!isCollapsed && <p className="text-white-50 fw-bold mb-2">Accounts</p>}
+                        {!isCollapsed && <p className="text-white-50 fw-bold mb-2">{t('sidebar.accounts')}</p>}
                     </div>
 
                     <div className="ms-4">
@@ -346,7 +349,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                                     display: 'inline-block',
                                     fontFamily: 'Arial, sans-serif',
                                 }}
-                            >Trung tâm thanh toán</span>}
+                            >{t('sidebar.paymentCenter')}</span>}
                         </a>
                         <a
                             href="#"
@@ -364,7 +367,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                                     display: 'inline-block',
                                     fontFamily: 'Arial, sans-serif',
                                 }}
-                            >Connect Shop</span>}
+                            >{t('sidebar.connectShop')}</span>}
                         </a>
                         <a
                             href="#"
@@ -382,7 +385,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                                     display: 'inline-block',
                                     fontFamily: 'Arial, sans-serif',
                                 }}
-                            >Quản lý nhân viên</span>}
+                            >{t('sidebar.staffManagement')}</span>}
                         </a>
                         <a
                             href="#"
@@ -400,7 +403,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                                     display: 'inline-block',
                                     fontFamily: 'Arial, sans-serif',
                                 }}
-                            >Cài đặt tài khoản</span>}
+                            >{t('sidebar.accountSettings')}</span>}
                         </a>
                         <a
                             href="#"
@@ -418,7 +421,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                                     display: 'inline-block',
                                     fontFamily: 'Arial, sans-serif',
                                 }}
-                            >Cài đặt Template</span>}
+                            >{t('sidebar.templateSettings')}</span>}
                         </a>
                     </div>
 
@@ -438,7 +441,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                                 fontFamily: 'Arial, sans-serif',
                                 wordBreak: 'break-all',
                             }}
-                        >Gói của bạn</span>)}
+                        >{t('sidebar.yourPlan')}</span>)}
                         <span
                             className={`ms-auto text-warning`}
                             style={{

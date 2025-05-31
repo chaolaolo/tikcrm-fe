@@ -1,19 +1,22 @@
 import React, { useState } from 'react';
 import Layout from '../Layouts/Layout';
-import './OrderTabs/OrderTabs.css';
 import DateRangePicker from '../../components/ui/DatePicker/DateRangePicker';
+import { useTranslation } from 'react-i18next';
+import AutoFulfillModal from './Component/AutoFulfillModal';
 
-
-const tabLabels = [
-  'Orders Without Design',
-  'Orders With Design (Not Yet Fulfilled)',
-  'Overdue Orders',
-  'Suspicious Orders',
-  'Returned Orders'
-];
 
 const OrderManagementScreen: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string | null>(null);
+  const { t } = useTranslation();
+  const [showAutoFulfill, setShowAutoFulfill] = useState(false);
+
+  const tabLabels = [
+    t('orders.tabs.withoutDesign'),
+    t('orders.tabs.withDesign'),
+    t('orders.tabs.overdue'),
+    t('orders.tabs.suspicious'),
+    t('orders.tabs.returned'),
+  ];
 
   const handleTabClick = (label: string) => {
     setActiveTab((prev) => (prev === label ? null : label));
@@ -26,23 +29,25 @@ const OrderManagementScreen: React.FC = () => {
   return (
     <div>
       <div className="d-flex justify-content-between align-items-center mb-4">
-        <h2>Orders</h2>
+        <h2>{t('orders.title')}</h2>
         <div className="d-flex gap-2">
-          <button className="btn btn-primary">
+          <button
+            onClick={() => setShowAutoFulfill(true)}
+            className="btn btn-primary">
             <i className="bi bi-lightning-fill me-2"></i>
-            Auto Fulfill
+            {t('orders.actions.autoFulfill')}
           </button>
           <button className="btn btn-primary">
             <i className="bi bi-download me-2"></i>
-            Export order
+            {t('orders.actions.export')}
           </button>
           <button className="btn btn-primary">
             <i className="bi bi-arrow-repeat me-2"></i>
-            Sync order
+            {t('orders.actions.sync')}
           </button>
           <button className="btn btn-primary">
             <i className="bi bi-arrow-clockwise me-2"></i>
-            Refresh
+            {t('orders.actions.refresh')}
           </button>
         </div>
       </div>
@@ -68,17 +73,17 @@ const OrderManagementScreen: React.FC = () => {
       {/* Filters */}
       <div className="row g-3 mb-4">
         <div className="col-12 col-md-3">
-          <input type="text" className="form-control" placeholder="Search order id" />
+          <input type="text" className="form-control" placeholder={t('orders.filters.orderId')} />
         </div>
         <div className="col-12 col-md-3">
-          <input type="text" className="form-control" placeholder="Search product id" />
+          <input type="text" className="form-control" placeholder={t('orders.filters.productId')} />
         </div>
         <div className="col-12 col-md-3">
-          <input type="text" className="form-control" placeholder="Search product name" />
+          <input type="text" className="form-control" placeholder={t('orders.filters.productName')} />
         </div>
         <div className="col-12 col-md-3">
           <select className="form-select">
-            <option>All Stores</option>
+            <option>{t('orders.filters.allStores')}</option>
           </select>
         </div>
       </div>
@@ -86,17 +91,17 @@ const OrderManagementScreen: React.FC = () => {
       <div className="row g-3 mb-4">
         <div className="col-12 col-md-3">
           <select className="form-select">
-            <option>All Staff</option>
+            <option>{t('orders.filters.allStaff')}</option>
           </select>
         </div>
         <div className="col-12 col-md-3">
           <select className="form-select">
-            <option>All Services</option>
+            <option>{t('orders.filters.allServices')}</option>
           </select>
         </div>
         <div className="col-12 col-md-3">
           <select className="form-select">
-            <option>All Statuses</option>
+            <option>{t('orders.filters.allStatuses')}</option>
           </select>
         </div>
         <div className="col-12 col-md-3">
@@ -109,18 +114,18 @@ const OrderManagementScreen: React.FC = () => {
         <table className="table table-bordered text-center">
           <thead className="table-light">
             <tr>
-              <th className="fw-medium text-center align-middle" >ID</th>
-              <th className="fw-medium text-center align-middle" >Account / Seller</th>
-              <th className="fw-medium text-center align-middle" >Order</th>
-              <th className="fw-medium text-center align-middle" >Order info</th>
-              <th className="fw-medium text-center align-middle" >Price</th>
+              <th className="fw-medium text-center align-middle" >{t('orders.table.id')}</th>
+              <th className="fw-medium text-center align-middle" >{t('orders.table.account')}</th>
+              <th className="fw-medium text-center align-middle" >{t('orders.table.order')}</th>
+              <th className="fw-medium text-center align-middle" >{t('orders.table.info')}</th>
+              <th className="fw-medium text-center align-middle" >{t('orders.table.price')}</th>
               <th className="fw-medium text-center align-middle" style={{
                 width: '120px',
                 position: 'sticky',
                 right: 0,
                 zIndex: 0,
                 boxShadow: '-6px 0 6px -2px rgba(0,0,0,0.15)',
-              }} >Actions</th>
+              }} >{t('orders.table.actions')}</th>
             </tr>
           </thead>
           <tbody>
@@ -128,13 +133,17 @@ const OrderManagementScreen: React.FC = () => {
               <td colSpan={8} className="py-5 text-muted">
                 <div className="d-flex flex-column align-items-center">
                   <i className="bi bi-inbox" style={{ fontSize: '3rem' }}></i>
-                  <div>No data</div>
+                  <div>{t('orders.table.noData')}</div>
                 </div>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
+
+      {/* AutoFulfillModal */}
+      <AutoFulfillModal show={showAutoFulfill} onClose={() => setShowAutoFulfill(false)} />
+
     </div>
   );
 };

@@ -50,6 +50,7 @@ import Dashboard from './pages/OrderManagement/OrderManagementScreen';
 import Layout from './pages/Layouts/Layout';
 import OrderManagementScreen from './pages/OrderManagement/OrderManagementScreen';
 import ProductManagementScreen from './pages/ProductManagement/ProductManagementScreen';
+import './i18n'; 
 
 const App = () => {
   const { isLoggedIn } = useAuth();
