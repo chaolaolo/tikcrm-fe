@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Modal } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
-import './modal.css';
+import '../modal.css';
 interface AutoFulfillModalProps {
   show: boolean;
   onClose: () => void;
@@ -38,7 +38,7 @@ const AutoFulfillModal: React.FC<AutoFulfillModalProps> = ({ show, onClose }) =>
       <Modal.Body className="h-100 overflow-auto">
         {/* Step Indicators */}
         <div className="d-flex align-items-center justify-content-between mb-4 px-4">
-          {steps.map((step, idx) => (
+          {steps.map((_, idx) => (
             <React.Fragment key={idx}>
               <div className="text-center d-flex flex-column align-items-center">
                 <div className="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center" style={{ width: 32, height: 32 }}>

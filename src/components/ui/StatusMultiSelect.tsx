@@ -72,9 +72,9 @@ const CustomOption = (props: any) => {
 };
 
 
-const DropdownIndicator = (props: any) => {
+const DropdownIndicator = (props: any & { isHovered: boolean }) => {
     const {
-        selectProps: { value, clearValue, isHovered },
+        selectProps: { value, clearValue }, isHovered
     } = props;
 
     return (
@@ -90,13 +90,13 @@ const DropdownIndicator = (props: any) => {
 
 const StatusMultiSelect: React.FC = () => {
     const [selected, setSelected] = useState<MultiValue<{ label: string; value: string }>>([]);
-    const [isHovered, setIsHovered] = useState(false);
+    // const [isHovered, setIsHovered] = useState(false);
 
     return (
         <div
             className="col-md"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
+        // onMouseEnter={() => setIsHovered(true)}
+        // onMouseLeave={() => setIsHovered(false)}
         >
             <Select
                 isMulti
@@ -113,8 +113,8 @@ const StatusMultiSelect: React.FC = () => {
                     ClearIndicator: () => null,
                     Option: CustomOption,
                 }}
-                isHovered={isHovered}
-                clearValue={() => setSelected([])}
+                // isHovered={isHovered}
+                // clearValue={() => setSelected([])}
                 noOptionsMessage={() => 'No matching status'}
             />
         </div>

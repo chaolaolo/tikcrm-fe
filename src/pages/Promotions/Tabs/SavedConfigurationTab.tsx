@@ -1,5 +1,4 @@
-import React, { type FC } from 'react'
-import StatusMultiSelect from '../../../components/ui/StatusMultiSelect';
+import { type FC } from 'react'
 
 const SavedConfigurationTab: FC = () => {
 

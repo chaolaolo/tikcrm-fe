@@ -9,15 +9,20 @@ const ProductDescriptionForm: React.FC = () => {
     return (
         <div className="mb-2">
             <CKEditor
-                editor={ClassicEditor}
+                editor={ClassicEditor as any}
                 data={description}
                 onReady={(editor) => {
                     // cao
-                    editor.ui.view.editable.element.style.height = '250px';
-                    // rộng
-                    editor.ui.view.editable.element.style.width = '100%';
+                    // editor.ui.view.editable.element.style.height = '250px';
+                    // // rộng
+                    // editor.ui.view.editable.element.style.width = '100%';
+                    const editableElement = editor.ui?.view?.editable?.element;
+                    if (editableElement) {
+                        editableElement.style.height = '250px';
+                        editableElement.style.width = '100%';
+                    }
                 }}
-                onChange={(event, editor) => {
+                onChange={(_, editor) => {
                     const data = editor.getData();
                     setDescription(data);
                 }}

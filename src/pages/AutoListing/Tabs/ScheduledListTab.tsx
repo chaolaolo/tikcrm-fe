@@ -1,4 +1,4 @@
-import React, { type FC } from 'react'
+import { type FC } from 'react'
 import DateRangePicker from '../../../components/ui/DatePicker/DateRangePicker';
 import { useTranslation } from 'react-i18next';
 

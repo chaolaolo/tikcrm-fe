@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
-import Layout from '../Layouts/Layout';
 import DateRangePicker from '../../components/ui/DatePicker/DateRangePicker';
 import { useTranslation } from 'react-i18next';
-import AutoFulfillModal from './Component/AutoFulfillModal';
+import AutoFulfillModal from './Component/AutoFulfill/AutoFulfillModal';
+import ExportOrderModal from './Component/ExportOrder/ExportOrderModal';
 
 
 const OrderManagementScreen: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string | null>(null);
   const { t } = useTranslation();
   const [showAutoFulfill, setShowAutoFulfill] = useState(false);
+  const [showExportOder, setShowExportOder] = useState(false);
 
   const tabLabels = [
     t('orders.tabs.withoutDesign'),
@@ -37,7 +38,8 @@ const OrderManagementScreen: React.FC = () => {
             <i className="bi bi-lightning-fill me-2"></i>
             {t('orders.actions.autoFulfill')}
           </button>
-          <button className="btn btn-primary">
+          <button
+            onClick={() => setShowExportOder(true)} className="btn btn-primary">
             <i className="bi bi-download me-2"></i>
             {t('orders.actions.export')}
           </button>
@@ -143,6 +145,7 @@ const OrderManagementScreen: React.FC = () => {
 
       {/* AutoFulfillModal */}
       <AutoFulfillModal show={showAutoFulfill} onClose={() => setShowAutoFulfill(false)} />
+      <ExportOrderModal show={showExportOder} onClose={() => setShowExportOder(false)} />
 
     </div>
   );

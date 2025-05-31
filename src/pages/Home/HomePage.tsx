@@ -1,4 +1,3 @@
-import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import Dashboard from '../OrderManagement/OrderManagementScreen';
 import Settings from './Settings';

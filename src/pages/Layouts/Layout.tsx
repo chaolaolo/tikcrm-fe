@@ -540,7 +540,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 </main>
             </div>
 
-            <style jsx>{`
+            <style>{`
         * {
           margin: 0;
           padding: 0;

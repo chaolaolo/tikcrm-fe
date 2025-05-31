@@ -1,8 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
-import Divider from '../../../core/Divider/Divider';
-import { Button } from 'antd';
 import '../login/login.css';
 
 const ForgotPassword: React.FC = () => {

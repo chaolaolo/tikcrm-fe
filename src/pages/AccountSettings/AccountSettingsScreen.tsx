@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Form, Button } from 'react-bootstrap';
 import MarketingTab from './Tabs/MarketingTab';
 import ChangePasswordTab from './Tabs/ChangePasswordTab';
 import NotificationTab from './Tabs/NotificationTab';

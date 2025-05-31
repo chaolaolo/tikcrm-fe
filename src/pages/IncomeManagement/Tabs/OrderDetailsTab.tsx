@@ -1,4 +1,4 @@
-import React, { type FC } from 'react'
+import { type FC } from 'react'
 import DateRangePicker from '../../../components/ui/DatePicker/DateRangePicker'
 
 const OrderDetailsTab: FC = () => {
@@ -17,7 +17,7 @@ const OrderDetailsTab: FC = () => {
                     </select>
                 </div>
                 <div className="col-md-4 text-start">
-                    <DateRangePicker onChange={handleDateChange}/>
+                    <DateRangePicker onChange={handleDateChange} />
                 </div>
             </div>
 
@@ -27,19 +27,19 @@ const OrderDetailsTab: FC = () => {
                     <thead className="table-light">
                         <tr>
                             <th className='fw-medium text-center align-middle'>#</th>
-                            <th className='fw-medium text-center align-middle' style={{fontSize:'14px'}}>Statement date (UTC)</th>
-                            <th className='fw-medium text-center align-middle' style={{fontSize:'14px'}}>Statement ID</th>
-                            <th className='fw-medium text-center align-middle' style={{fontSize:'14px'}}>Payment ID</th>
-                            <th className='fw-medium text-center align-middle' style={{fontSize:'14px'}}>Status</th>
-                            <th className='fw-medium text-center align-middle' style={{fontSize:'14px'}}>Currency</th>
-                            <th className='fw-medium text-center align-middle' style={{fontSize:'14px'}}>Type</th>
-                            <th className='fw-medium text-center align-middle' style={{fontSize:'14px'}}>Order/adjustment ID</th>
-                            <th className='fw-medium text-center align-middle' style={{fontSize:'14px'}}>Order status</th>
-                            <th className='fw-medium text-center align-middle' style={{fontSize:'14px'}}>Total settlement amount</th>
-                            <th className='fw-medium text-center align-middle' style={{fontSize:'14px'}}>Shop code</th>
-                            <th className='fw-medium text-center align-middle' style={{fontSize:'14px'}}>Shop name</th>
-                            <th className='fw-medium text-center align-middle' style={{fontSize:'14px'}}>Suggest name</th>
-                            <th className='fw-medium text-center align-middle' style={{fontSize:'14px'}}>Name Seller</th>
+                            <th className='fw-medium text-center align-middle' style={{ fontSize: '14px' }}>Statement date (UTC)</th>
+                            <th className='fw-medium text-center align-middle' style={{ fontSize: '14px' }}>Statement ID</th>
+                            <th className='fw-medium text-center align-middle' style={{ fontSize: '14px' }}>Payment ID</th>
+                            <th className='fw-medium text-center align-middle' style={{ fontSize: '14px' }}>Status</th>
+                            <th className='fw-medium text-center align-middle' style={{ fontSize: '14px' }}>Currency</th>
+                            <th className='fw-medium text-center align-middle' style={{ fontSize: '14px' }}>Type</th>
+                            <th className='fw-medium text-center align-middle' style={{ fontSize: '14px' }}>Order/adjustment ID</th>
+                            <th className='fw-medium text-center align-middle' style={{ fontSize: '14px' }}>Order status</th>
+                            <th className='fw-medium text-center align-middle' style={{ fontSize: '14px' }}>Total settlement amount</th>
+                            <th className='fw-medium text-center align-middle' style={{ fontSize: '14px' }}>Shop code</th>
+                            <th className='fw-medium text-center align-middle' style={{ fontSize: '14px' }}>Shop name</th>
+                            <th className='fw-medium text-center align-middle' style={{ fontSize: '14px' }}>Suggest name</th>
+                            <th className='fw-medium text-center align-middle' style={{ fontSize: '14px' }}>Name Seller</th>
                         </tr>
                     </thead>
                     <tbody>

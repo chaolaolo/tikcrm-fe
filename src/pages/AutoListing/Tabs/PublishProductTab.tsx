@@ -1,4 +1,4 @@
-import React, { useState, type FC } from 'react'
+import { useState, type FC } from 'react'
 import ProductDescriptionForm from './TextEditor'
 import { useTranslation } from 'react-i18next';
 

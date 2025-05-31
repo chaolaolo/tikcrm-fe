@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Form, Button, Tooltip, OverlayTrigger } from 'react-bootstrap';
+import { useState } from 'react'
+import { Tooltip, OverlayTrigger } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 
 const generateRandomApiKey = () => {
@@ -32,7 +32,7 @@ const AccountSettingsTab = () => {
     setCopied(false);
   };
 
-  const renderTooltip = (props) => (
+  const renderTooltip = (props:any) => (
     <Tooltip id="button-tooltip" {...props}>
       {copied ? 'Copied' : 'Copy'}
     </Tooltip>
@@ -138,7 +138,7 @@ const AccountSettingsTab = () => {
         <label className="form-label">{t('accountSettings.form.language')}</label>
         <select
           className="form-select"
-          value={i18n.language}
+          value={i18n.language || language} 
           onChange={(e) => {
             const selectedLanguage = e.target.value;
             setLanguage(selectedLanguage)

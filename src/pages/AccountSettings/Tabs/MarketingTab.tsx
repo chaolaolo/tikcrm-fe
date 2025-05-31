@@ -6,8 +6,6 @@ import { useTranslation } from 'react-i18next';
 
 
 const MarketingTab = () => {
-  const [copied, setCopied] = useState(false);
-  const referralCode = '45R7A96R';
   const { t } = useTranslation();
 
 
@@ -58,7 +56,7 @@ const InviteCard: React.FC = () => {
     setTimeout(() => setCopied(false), 1000);
   };
 
-  const renderTooltip = (props) => (
+  const renderTooltip = (props:any) => (
     <Tooltip id="button-tooltip" {...props}>
       {copied ? 'Copied' : 'Copy'}
     </Tooltip>

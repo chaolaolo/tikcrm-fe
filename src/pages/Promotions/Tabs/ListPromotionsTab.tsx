@@ -1,12 +1,7 @@
-import React, { type FC } from 'react'
-import DateRangePicker from '../../../components/ui/DatePicker/DateRangePicker';
+import { type FC } from 'react'
 import StatusMultiSelect from '../../../components/ui/StatusMultiSelect';
 
 const ListPromotionsTab: FC = () => {
-  const handleDateChange = ([start, end]: [Date | null, Date | null]) => {
-    console.log('Start:', start, 'End:', end);
-  };
-
 
   return (
     <div className="container-fluid bg-white p-3 min-vh-100">

@@ -1,14 +1,12 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link, useNavigate } from 'react-router-dom';
-import Divider from '../../../core/Divider/Divider';
-import { Button } from 'antd';
 import './login.css';
 import { useAuth } from '../../../store/AuthContext';
 import { useTranslation } from 'react-i18next';
 const LoginPage: React.FC = () => {
   const navigate = useNavigate();
-  const { isLoggedIn } = useAuth();
+  // const { isLoggedIn } = useAuth();
   const { login } = useAuth();
   const { t } = useTranslation();
 
