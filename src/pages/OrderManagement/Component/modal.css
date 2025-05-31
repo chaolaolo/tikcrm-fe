@@ -1,0 +1,56 @@
+.custom-modal-slide {
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin: 0;
+  height: 100vh;
+  min-width: 68%;
+  max-width: 100%;
+  border: none;
+  transition: none;
+  z-index: 1050;
+}
+
+.custom-modal-slide .modal-content {
+  height: 100%;
+  border-radius: 0;
+  border: none;
+}
+
+/* Slide-in từ phải */
+.slide-in {
+  animation: slideInRight 0.4s forwards;
+}
+
+/* Slide-out sang phải */
+.slide-out {
+  animation: slideOutRight 0.4s forwards;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.step-line {
+  height: 2px;
+  background-color: #e0e0e0;
+  margin-top: -8px; 
+}

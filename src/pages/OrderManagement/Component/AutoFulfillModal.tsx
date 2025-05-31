@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Modal } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
-
+import './modal.css';
 interface AutoFulfillModalProps {
   show: boolean;
   onClose: () => void;
@@ -9,6 +9,7 @@ interface AutoFulfillModalProps {
 
 const AutoFulfillModal: React.FC<AutoFulfillModalProps> = ({ show, onClose }) => {
   const { t } = useTranslation();
+  const [animationClass, setAnimationClass] = useState('');
 
   const steps = [
     t('autoFulfill.step1'),
@@ -17,23 +18,41 @@ const AutoFulfillModal: React.FC<AutoFulfillModalProps> = ({ show, onClose }) =>
     t('autoFulfill.step4')
   ];
 
+  useEffect(() => {
+    if (show) {
+      setAnimationClass('slide-in');
+    } else if (!show) {
+      setAnimationClass('slide-out');
+    }
+  }, [show]);
+
   return (
-    <Modal show={show} onHide={onClose} size="xl" centered backdrop="static">
+    <Modal show={show}
+      onHide={onClose}
+      dialogClassName={`custom-modal-slide ${animationClass}`}
+      contentClassName="h-100"
+      onExited={() => setAnimationClass('')}>
       <Modal.Header closeButton>
         <Modal.Title>{t('orders.actions.autoFulfill')}</Modal.Title>
       </Modal.Header>
-      <Modal.Body>
+      <Modal.Body className="h-100 overflow-auto">
         {/* Step Indicators */}
-        <div className="d-flex justify-content-between align-items-center mb-4">
+        <div className="d-flex align-items-center justify-content-between mb-4 px-4">
           {steps.map((step, idx) => (
-            <div key={idx} className="text-center flex-fill">
-              <div className="rounded-circle bg-primary text-white mx-auto mb-2" style={{ width: 32, height: 32 }}>
-                {idx + 1}
+            <React.Fragment key={idx}>
+              <div className="text-center d-flex flex-column align-items-center">
+                <div className="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center" style={{ width: 32, height: 32 }}>
+                  {idx + 1}
+                </div>
+                {/* <div className="text-muted small mt-1">{step}</div> */}
               </div>
-              {/* <div style={{ fontSize: '14px' }}>{step}</div> */}
-            </div>
+              {idx < steps.length - 1 && (
+                <div className="flex-grow-1 mx-2 my-auto step-line" />
+              )}
+            </React.Fragment>
           ))}
         </div>
+
 
         {/* Table */}
         <div className="table-responsive">

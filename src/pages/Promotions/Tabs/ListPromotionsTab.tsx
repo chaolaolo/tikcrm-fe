@@ -20,11 +20,11 @@ const ListPromotionsTab: FC = () => {
 
       <div className="d-flex justify-content-between align-items-end gap-1 mb-3 ">
         <div className='d-flex col-md-4 flex-wrap'>
-           <StatusMultiSelect />
+          <StatusMultiSelect />
         </div>
         <div className='d-flex gap-2'>
           <button className="btn btn-primary" style={{ minWidth: '130px' }}>
-            <i className="bi bi-arrow-clockwise me-1"></i> Đồng bộ promotion
+            Đồng bộ promotion
           </button>
           <button className="btn btn-primary" style={{ minWidth: '130px' }}>
             <i className="bi bi-arrow-clockwise me-1"></i> Refresh

@@ -44,8 +44,8 @@ const PaymentCenterScreen: React.FC = () => {
             <div className="bg-white border rounded p-4 h-100 d-flex text-start justify-content-between align-items-end">
               <div>
                 <h6>Thông tin ví chính</h6>
-                <h2 className="fw-bold">$$0</h2>
-                <p className="text-black small mb-3">≈ $0d</p>
+                <h2 className="fw-bold">$0</h2>
+                <p className="text-black small mb-3">≈ $0</p>
               </div>
               <div>
                 <button className="btn btn-primary">Nạp tiền</button>

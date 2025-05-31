@@ -1,4 +1,4 @@
-import React, { type FC } from 'react'
+import React, { useState, type FC } from 'react'
 import ProductDescriptionForm from './TextEditor'
 import { useTranslation } from 'react-i18next';
 
@@ -7,7 +7,8 @@ interface Props {
 }
 
 const PublishProductTab: FC<Props> = (isCollapsed) => {
-    const {t} = useTranslation();
+    const { t } = useTranslation();
+    const [images, setImages] = useState<File[]>([]);
 
     return (
         <div>
@@ -50,21 +51,43 @@ const PublishProductTab: FC<Props> = (isCollapsed) => {
                     <label className="mb-0">{t('autoListing.shop.label')}</label>
                 </div>
                 <select className="form-select">
-                    <option>{t('autoListing.schedule.placeholder')}</option>
+                    <option>{t('autoListing.shop.placeholder')}</option>
                 </select>
             </div>
 
             {/* Upload image */}
-            <div className="d-flex align-items-end mb-1">
-                <span className="text-danger me-1">*</span>
-                <label className="form-label mb-0">{t('autoListing.images.label')}</label>
-                <i className="bi bi-question-circle ms-1 text-muted" style={{ fontSize: '14px' }}></i>
-            </div>
-            <div className="mb-3 border rounded text-center p-5 border-primary" style={{ borderStyle: 'dashed' }}>
+            <div className="mb-3 border rounded text-center p-5 border-primary position-relative" style={{ borderStyle: 'dashed' }}>
+                <input
+                    type="file"
+                    accept="image/*"
+                    multiple
+                    onChange={(e) => {
+                        const files = e.target.files;
+                        if (files) {
+                            setImages([...images, ...Array.from(files)]);
+                        }
+                    }}
+                    className="position-absolute w-100 h-100"
+                    style={{ opacity: 0, cursor: 'pointer', left: 0, top: 0 }}
+                />
                 <i className="bi bi-upload" style={{ fontSize: '2rem' }}></i>
                 <p className="mt-2">{t('autoListing.images.tooltip')}</p>
                 <small className="text-muted">Support for a single or bulk upload. Strictly prohibited from uploading company data or other banned files.</small>
             </div>
+            {/* hiện ảnh đã chọn */}
+            <div className="d-flex flex-wrap gap-3 my-3">
+                {images.map((file, index) => (
+                    <div key={index} className="position-relative">
+                        <img
+                            src={URL.createObjectURL(file)}
+                            alt={`uploaded-${index}`}
+                            className='border'
+                            style={{ width: '80px', height: '80px', objectFit: 'cover', borderRadius: '8px' }}
+                        />
+                    </div>
+                ))}
+            </div>
+
 
             {/* Product info */}
             <div className="row g-3 mb-3">
