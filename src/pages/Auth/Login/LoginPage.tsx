@@ -29,8 +29,7 @@ const LoginPage: React.FC = () => {
     }}>
       <div className="d-flex justify-content-center align-items-center min-vh-100 p-3">
         <div className="w-100" style={{ maxWidth: '600px', }}>
-          <p className="text-center mb-8 fs-3 fw-normal">Login to TikCRM Management</p>
-          <h1>{t('welcome')}</h1>
+          <p className="text-center mb-8 fs-3 fw-normal">{t('auth.loginTitle')}</p>
           <div className="card p-8 " style={{
             marginTop: '40px',
             marginLeft: '20px',
